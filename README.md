@@ -1,6 +1,8 @@
 # Subgym — marketing site
 
-A single, self-contained static landing page: `index.html`. No build step, no
+A single, self-contained static landing page: `index.html`. It sells Subgym to **gyms**
+(SubGym) and **fitness sellers** (SubVendor) — the paying customers — with SubFit presented
+as where their customers are. No build step, no
 dependencies, no external requests (inline SVG icons, CSS-gradient art, data-URI
 favicon) — it works offline and deploys anywhere.
 
@@ -35,8 +37,10 @@ vanilla-JS enhancement (mobile menu, scroll reveal, footer year). To change:
 - **Brand colors** — the CSS variables in `:root`. They match SubFit (lime `--em` on
   near-black `--bg`); each app card uses its own app's brand colour (SubGym blue, SubTrainer
   purple, SubVendor orange, SubSystem violet).
-- **Demo CTA** — the `mailto:hello@subgym.app` link (search for it) → your real
-  address or a form URL.
+- **Demo CTAs** — the `mailto:hello@subgym.app` links ("List your gym", "Become a seller")
+  → your real address or a form URL.
+- **Pricing** — deliberately gives no numbers ("commission-based, ask for your rate"); add
+  rates here once they're final.
 
 ## Notes
 
