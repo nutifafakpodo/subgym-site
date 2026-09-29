@@ -15,8 +15,8 @@ open site/index.html
 Or serve it (so smooth-scroll and relative links behave exactly as in production):
 
 ```bash
-python3 -m http.server 8080 --directory site
-# → http://localhost:8080
+python3 -m http.server 4186 --directory site
+# → http://localhost:4186  (also the `site` entry in .claude/launch.json)
 ```
 
 ## Deploy (pick one)
@@ -32,7 +32,9 @@ Everything is in `index.html` — content, styles (a `<style>` block), and a tin
 vanilla-JS enhancement (mobile menu, scroll reveal, footer year). To change:
 
 - **Copy / sections** — edit the HTML directly.
-- **Brand colors** — the CSS variables in `:root` (`--em`, `--teal`, `--bg`, …).
+- **Brand colors** — the CSS variables in `:root`. They match SubFit (lime `--em` on
+  near-black `--bg`); each app card uses its own app's brand colour (SubGym blue, SubTrainer
+  purple, SubVendor orange, SubSystem violet).
 - **Demo CTA** — the `mailto:hello@subgym.app` link (search for it) → your real
   address or a form URL.
 
