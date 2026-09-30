@@ -21,7 +21,22 @@ python3 -m http.server 4186 --directory site
 # → http://localhost:4186  (also the `site` entry in .claude/launch.json)
 ```
 
-## Deploy (pick one)
+## Live site
+
+Published with GitHub Pages from the public repo
+[`nutifafakpodo/subgym-site`](https://github.com/nutifafakpodo/subgym-site), which holds only
+this folder: **https://nutifafakpodo.github.io/subgym-site/**
+
+This folder stays the source of truth. To publish changes, commit them here, then from the
+monorepo root:
+
+```bash
+git subtree push --prefix site https://github.com/nutifafakpodo/subgym-site.git main
+```
+
+Pages redeploys within a minute or two. (`.nojekyll` tells Pages to serve the files as-is.)
+
+## Other hosts
 
 - **Cloudflare Pages / Netlify / Vercel** — drag the `site/` folder in, or point it
   at this repo with output directory `site`. Free tier is plenty.
