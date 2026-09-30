@@ -770,11 +770,20 @@
     for (var i = 0; i < 25; i++) { var s = document.createElement('i'); if (p[i] === '1') s.className = 'on'; q.appendChild(s); }
   })();
   // ── Demo request form → Google Form ────────────────────────────────
-  // Paste the Google Form's "formResponse" URL and each question's entry id.
-  // Until `action` is set, the form stays hidden and the email buttons show.
+  // The "Subgym — Demo request" Google Form: its "formResponse" URL and each
+  // question's entry id. With `action` empty, the form hides and the email
+  // buttons show instead.
   var DEMO_FORM = {
-    action: '',
-    fields: { type: '', name: '', email: '', phone: '', business: '', city: '', message: '' },
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSek5aTjPsb8Zan4zgDeWEZLMjX24VcpxM9p9c2Jdp2nVqhu6A/formResponse',
+    fields: {
+      type: 'entry.1538648575',
+      name: 'entry.1600433361',
+      phone: 'entry.643238434',
+      email: 'entry.1788516410',
+      business: 'entry.2071680773',
+      city: 'entry.738083997',
+      message: 'entry.743180777'
+    },
     // How the "I run a" answer is written in the Google Form's options.
     typeLabels: { gym: 'Gym', seller: 'Fitness store / seller' }
   };

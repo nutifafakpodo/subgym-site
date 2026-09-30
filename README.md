@@ -52,16 +52,20 @@ Everything is in `index.html` — content, styles (a `<style>` block), and a lit
 
 ## Demo request form (Google Forms)
 
-The "Book a demo" form posts straight into a Google Form, so every request lands in the
-form's Responses tab (and its linked Google Sheet). It's configured in `DEMO_FORM` near the
-bottom of `index.html`:
+The "Book a demo" form posts straight into the **"Subgym — Demo request"** Google Form
+(in the owner's Google Drive), so every request lands in that form's Responses tab. The form
+must stay published to "Anyone with the link", with email collection and "Limit to 1
+response" off; otherwise Google rejects the site's submissions. It's configured in
+`DEMO_FORM` near the bottom of `index.html`:
 
 - `action` — the form's `https://docs.google.com/forms/d/e/<FORM_ID>/formResponse` URL
 - `fields` — the `entry.<number>` id of each question (name, email, phone, type, business,
   city, message)
 - `typeLabels` — the exact option text of the "I run a" question
 
-While `action` is empty the form stays hidden and the email buttons show instead.
+While `action` is empty the form stays hidden and the email buttons show instead. If you
+rebuild the form, the entry ids change: read them from the new form's public page
+(`FB_PUBLIC_LOAD_DATA_`) or from "Get pre-filled link".
 
 ## Other hosts
 
