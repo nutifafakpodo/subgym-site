@@ -1,8 +1,8 @@
-# Subgym — marketing site
+# SubGym — marketing site
 
-The public website for Subgym: **https://nutifafakpodo.github.io/subgym-site/**
+The public website for SubGym: **https://nutifafakpodo.github.io/subgym-site/**
 
-A single, self-contained static page, `index.html`. It sells Subgym to **gyms** (SubGym) and
+A single, self-contained static page, `index.html`. It sells SubGym to **gyms** (the SubGym portal) and
 **fitness sellers** (SubVendor) — the paying customers — with SubFit presented as where their
 customers are. No build step, no dependencies, no external requests (inline SVG icons,
 CSS-gradient art, data-URI favicon) — it works offline and deploys anywhere.
@@ -52,7 +52,7 @@ Everything is in `index.html` — content, styles (a `<style>` block), and a lit
 
 ## Demo request form (Google Forms)
 
-The "Book a demo" form posts straight into the **"Subgym — Demo request"** Google Form
+The "Book a demo" form posts straight into the **"SubGym — Demo request"** Google Form
 (in the owner's Google Drive), so every request lands in that form's Responses tab. The form
 must stay published to "Anyone with the link", with email collection and "Limit to 1
 response" off; otherwise Google rejects the site's submissions. It's configured in
