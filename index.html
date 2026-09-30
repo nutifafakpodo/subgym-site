@@ -12,6 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4f04a'/%3E%3Cpath d='M9 12h3v8H9zm11 0h3v8h-3zM12 15h8v2h-8z' fill='%230a0c0a'/%3E%3C/svg%3E" />
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
   :root{
     /* Matches SubFit: lime accent on near-black, warm-grey text. */
     --bg:#0a0c0a; --bg2:#0f120f; --card:#121612; --card2:#0d100d;
@@ -100,6 +101,81 @@
   .qr i.on{background:#0a0c0a}
   .pass em{display:block;font-style:normal;font-size:8.5px;color:var(--muted);margin-top:7px}
 
+  /* SubFit phone mock (members section) */
+  .device{position:relative;justify-self:center;flex:none;width:280px;height:560px;border-radius:38px;background:#050605;border:1.5px solid var(--line2);box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 8px rgba(148,163,184,.03);padding:14px}
+  .screen{height:100%;border-radius:26px;background:var(--bg);overflow:hidden;position:relative}
+  .sf-head{display:flex;justify-content:space-between;align-items:center;padding:20px 16px 12px;border-bottom:1px solid var(--line)}
+  .sf-head small{display:block;font-size:8.5px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+  .sf-head b{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .sf-head .av{width:30px;height:30px;border-radius:50%;background:var(--em);color:var(--on-em);display:grid;place-items:center;font-size:11px;font-weight:800}
+  .sf-label{font-size:13px;font-weight:800;letter-spacing:-.01em;padding:14px 16px 8px}
+  .mcard{margin:0 16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px}
+  .mrow{display:flex;justify-content:space-between;align-items:center}
+  .mrow .status{font-size:8.5px;font-weight:800;letter-spacing:.12em;color:var(--em)}
+  .mrow .streak{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:700;color:var(--em);background:rgba(180,240,74,.12);padding:3px 7px;border-radius:999px}
+  .mcard .mgym{display:block;font-size:15px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+  .mcard .mplan{font-size:10.5px;color:var(--muted)}
+  .mcard .mmeta{font-size:9.5px;color:var(--muted);margin-top:9px}
+  .mbtns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:11px}
+  .mbtns span{display:flex;align-items:center;justify-content:center;gap:4px;font-size:9.5px;font-weight:700;padding:8px 0;border:1px solid var(--line2);border-radius:10px}
+  .crow{margin:0 16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;align-items:center;gap:9px}
+  .crow .cic{width:30px;height:30px;border-radius:9px;background:rgba(180,240,74,.12);display:grid;place-items:center;flex:none}
+  .crow>div{min-width:0}
+  .crow b,.crow small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .crow b{font-size:10.5px}
+  .crow small{font-size:9px;color:var(--muted)}
+  .crow .book{margin-left:auto;font-size:9.5px;font-weight:800;color:var(--on-em);background:var(--em);padding:6px 11px;border-radius:999px}
+  .tabbar{position:absolute;bottom:0;left:0;right:0;height:56px;background:rgba(10,12,10,.95);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-around;font-size:9.5px;font-weight:600;color:var(--muted)}
+  .tabbar span{display:flex;flex-direction:column;align-items:center;gap:3px}
+  .tabbar svg{width:15px;height:15px}
+  .tabbar .act{color:var(--em)}
+  .qr-badge{position:absolute;top:-16px;right:-16px;width:76px;height:76px;border-radius:18px;background:#050605;border:1px solid var(--line2);display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:2px;padding:10px;box-shadow:0 14px 30px -12px rgba(0,0,0,.6)}
+  .qr-badge i{border-radius:2px;background:#1f241e}
+  .qr-badge i.on{background:var(--em)}
+
+  /* SubVendor orders mock (sellers section) */
+  .seller-top{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;margin-bottom:48px}
+  .seller-top .sechead{margin-bottom:0}
+  .vvisual{position:relative;padding:0 0 70px 34px}
+  .browser.vendor{background:#13100e;border-color:rgba(214,211,209,.16)}
+  .browser.vendor .bar{background:#1a1613;border-bottom-color:rgba(214,211,209,.12)}
+  .browser.vendor .bar i{background:#3a322c}
+  .browser.vendor .bar em{background:#13100e;color:#a8a29e}
+  .vapp{display:grid;grid-template-columns:112px 1fr;min-height:300px}
+  .vside{background:#171310;border-right:1px solid rgba(214,211,209,.1);padding:14px 10px}
+  .vside .brand{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:800;margin-bottom:14px}
+  .vside .brand i{width:20px;height:20px;border-radius:6px;background:var(--shop)}
+  .vside span{display:block;font-size:10px;color:#a8a29e;padding:6px 8px;border-radius:7px;margin-bottom:2px}
+  .vside span.on{background:rgba(249,115,22,.16);color:#fed7aa}
+  .vmain{padding:16px;background:#100d0b}
+  .vmain h4{font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .vmain .sub{font-size:10px;color:#a8a29e;margin-bottom:10px}
+  .vtabs{display:inline-flex;background:#1c1714;border-radius:9px;padding:3px;gap:2px;margin-bottom:10px}
+  .vtabs span{font-size:9.5px;font-weight:600;color:#a8a29e;padding:4px 9px;border-radius:7px}
+  .vtabs span.on{background:#2a221d;color:#fff}
+  .vtabs b{font-size:8.5px;margin-left:4px;padding:0 5px;border-radius:999px;background:rgba(249,115,22,.2);color:#fdba74}
+  .order{border:1px solid rgba(214,211,209,.12);border-radius:12px;background:#15110e;overflow:hidden}
+  .order .top{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(214,211,209,.1)}
+  .order .who{display:flex;align-items:center;gap:8px}
+  .order .who i{width:24px;height:24px;border-radius:50%;background:rgba(249,115,22,.2);color:#fdba74;font-style:normal;font-size:9px;font-weight:800;display:grid;place-items:center}
+  .order .who b{display:block;font-size:11px}
+  .order .who small{font-size:9px;color:#a8a29e}
+  .order .tags{display:flex;gap:4px}
+  .order .tags span{font-size:8.5px;font-weight:700;padding:2px 7px;border-radius:999px}
+  .order .paid{background:rgba(34,197,94,.14);color:#4ade80}
+  .order .new{background:rgba(245,158,11,.16);color:#fbbf24}
+  .order .lines{padding:9px 12px;display:grid;gap:5px;font-size:10px;color:#e7e5e4}
+  .order .lines div{display:flex;justify-content:space-between;gap:8px}
+  .order .lines em{font-style:normal;color:#a8a29e}
+  .order .lines .tot{border-top:1px solid rgba(214,211,209,.1);padding-top:6px;font-weight:800}
+  .order .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 12px;background:#120f0c;border-top:1px solid rgba(214,211,209,.1)}
+  .order .foot small{font-size:9px;color:#a8a29e}
+  .order .foot b{font-size:9.5px;color:#fff;background:var(--shop);padding:6px 11px;border-radius:8px;white-space:nowrap}
+  .lowstock{position:absolute;left:0;bottom:0;width:190px;background:#1a1512;border:1px solid rgba(245,158,11,.35);border-radius:14px;padding:11px 12px;box-shadow:0 24px 40px -18px rgba(0,0,0,.8)}
+  .lowstock small{display:block;font-size:8.5px;font-weight:800;letter-spacing:.1em;color:#fbbf24}
+  .lowstock b{display:block;font-size:11.5px;margin:3px 0 2px}
+  .lowstock em{font-style:normal;font-size:9.5px;color:#a8a29e}
+
   /* section header */
   .sechead{max-width:720px;margin-bottom:48px}
   .sechead h2{font-size:40px;font-weight:800;margin:14px 0 14px}
@@ -151,7 +227,7 @@
 
   /* members band */
   .band{background:linear-gradient(120deg,var(--bg2),var(--card2));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .band-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
   .band h2{font-size:36px;font-weight:800;margin:14px 0}
   .band p{color:var(--muted2);font-size:16.5px}
   .mlist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -192,6 +268,41 @@
   .cta p{font-size:18px;color:var(--muted2);max-width:620px;margin:0 auto 28px}
   .cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
+  /* demo request form */
+  .demo{background:linear-gradient(120deg,rgba(180,240,74,.12),rgba(124,198,45,.04));border:1px solid rgba(180,240,74,.25);border-radius:24px;padding:48px;position:relative;overflow:hidden}
+  .demo-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start;position:relative}
+  .demo h2{font-size:38px;font-weight:800;margin:14px 0 14px}
+  .demo-copy>p{font-size:17px;color:var(--muted2)}
+  .next{list-style:none;margin-top:26px;display:grid;gap:14px;counter-reset:n}
+  .next li{display:flex;gap:12px;font-size:15px;color:var(--muted2);counter-increment:n}
+  .next li::before{content:counter(n);width:26px;height:26px;flex:none;border-radius:8px;background:rgba(180,240,74,.14);color:var(--em2);font-weight:800;font-size:13px;display:grid;place-items:center}
+  .demo-form{background:var(--bg2);border:1px solid var(--line2);border-radius:18px;padding:26px;display:grid;gap:16px}
+  .demo-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .demo-form label{display:grid;gap:6px;font-size:13.5px;font-weight:600;color:var(--muted2)}
+  .demo-form label small{font-weight:500;color:var(--muted)}
+  .demo-form input,.demo-form textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:11px 13px;outline:none;transition:.15s}
+  .demo-form textarea{resize:vertical;min-height:84px}
+  .demo-form input:focus,.demo-form textarea:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(180,240,74,.18)}
+  .demo-form input::placeholder,.demo-form textarea::placeholder{color:#6c736c}
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .choice label{position:relative;display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;cursor:pointer;color:var(--ink);font-size:14.5px}
+  .choice input{position:absolute;opacity:0;pointer-events:none}
+  .choice .dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--line2);flex:none}
+  .choice label:has(input:checked){border-color:var(--em);background:rgba(180,240,74,.08)}
+  .choice label:has(input:checked) .dot{border-color:var(--em);background:radial-gradient(circle,var(--em) 45%,transparent 50%)}
+  .choice label:has(input:focus-visible){box-shadow:0 0 0 3px rgba(180,240,74,.25)}
+  .demo-form .legend{font-size:13.5px;font-weight:600;color:var(--muted2);margin-bottom:6px}
+  .demo-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .demo-form .fine{font-size:12.5px;color:var(--muted)}
+  .demo-form .err{font-size:13.5px;color:#fb7185}
+  .demo-form button{justify-content:center;width:100%;font-size:16px;padding:14px}
+  .demo-form button[disabled]{opacity:.6;cursor:progress}
+  .thanks{background:var(--bg2);border:1px solid rgba(180,240,74,.35);border-radius:18px;padding:34px;text-align:center}
+  .thanks .ok{width:52px;height:52px;border-radius:50%;background:rgba(180,240,74,.14);display:grid;place-items:center;margin:0 auto 14px}
+  .thanks h3{font-size:22px;margin-bottom:8px}
+  .thanks p{color:var(--muted2)}
+  .fallback{display:flex;gap:12px;flex-wrap:wrap}
+
   /* footer */
   footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-size:13.5px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -204,7 +315,8 @@
   .js .reveal.in{opacity:1;transform:none}
 
   @media(max-width:980px){
-    .hero-grid,.band-grid,.price{grid-template-columns:1fr;gap:44px}
+    .hero-grid,.band-grid,.price,.seller-top,.demo-grid{grid-template-columns:1fr;gap:44px}
+    .vvisual{max-width:560px;margin:0 auto;width:100%}
     .visual{max-width:560px;margin:0 auto;width:100%}
     .aud{grid-template-columns:1fr}
     .feat{grid-template-columns:1fr 1fr}
@@ -223,12 +335,20 @@
     .sechead h2,.cta h2,.band h2{font-size:29px}
     .acard,.price .main-p,.price .side-p{padding:26px}
     .cta{padding:40px 22px}
+    .demo{padding:28px 20px}
+    .demo h2{font-size:29px}
+    .demo-form{padding:20px}
+    .demo-form .row,.choice{grid-template-columns:1fr}
     .navcta .btn-primary{display:none}
     .visual{padding:0 0 96px}
     .app{grid-template-columns:1fr}
     .side{display:none}
     .pass{width:118px;left:auto;right:12px}
     .qr{width:72px;height:72px}
+    .vvisual{padding:0 0 84px}
+    .vapp{grid-template-columns:1fr}
+    .vside{display:none}
+    .lowstock{left:auto;right:12px}
   }
 </style>
 <script>document.documentElement.className += ' js';</script>
@@ -268,7 +388,7 @@
       <h1>Fill your gym. <span class="accent">Run it from one screen.</span></h1>
       <p class="lead">Subgym gives your gym everything to sell memberships and day passes, check members in with a QR code, and get paid — and puts you in front of members on the SubFit app. Fitness sellers reach those same members through the SubFit store.</p>
       <div class="hero-cta">
-        <a href="#start" class="btn btn-primary">List your gym <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#start" data-demo="gym" class="btn btn-primary">List your gym <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="#sellers" class="btn btn-ghost">I sell fitness products</a>
       </div>
       <div class="ticks">
@@ -372,16 +492,52 @@
       <div class="step"><div class="n">4</div><h4>Members join</h4><p>They find you in SubFit, pay, and get their QR pass.</p></div>
       <div class="step"><div class="n">5</div><h4>Scan &amp; get paid</h4><p>Check them in at the desk; earnings go to your account.</p></div>
     </div>
+    <div class="reveal" style="margin-top:26px"><a href="#start" data-demo="gym" class="btn btn-primary">List your gym</a></div>
   </div>
 </section>
 
 <!-- FOR SELLERS -->
 <section class="sec shopsec" id="sellers">
   <div class="wrap">
-    <div class="sechead reveal">
-      <span class="eyebrow" style="color:var(--shop2)">SubVendor · for fitness sellers</span>
-      <h2>Sell to gym-goers, right where they train</h2>
-      <p>SubVendor puts your products in the SubFit store and gives you the tools to fulfil every order — on the web or on your phone.</p>
+    <div class="seller-top">
+      <div class="sechead reveal">
+        <span class="eyebrow" style="color:var(--shop2)">SubVendor · for fitness sellers</span>
+        <h2>Sell to gym-goers, right where they train</h2>
+        <p>SubVendor puts your products in the SubFit store and gives you the tools to fulfil every order — on the web or on your phone.</p>
+      </div>
+      <div class="vvisual reveal" aria-label="The SubVendor orders screen">
+        <div class="browser vendor">
+          <div class="bar"><i></i><i></i><i></i><em>SubVendor · Orders</em></div>
+          <div class="vapp">
+            <div class="vside">
+              <div class="brand"><i></i>SubVendor</div>
+              <span>Dashboard</span><span class="on">Orders</span><span>Products</span><span>Renewals</span><span>Reviews</span>
+            </div>
+            <div class="vmain">
+              <h4>Orders</h4>
+              <div class="sub">Orders from SubFit members</div>
+              <div class="vtabs"><span class="on">New<b>2</b></span><span>Preparing<b>1</b></span><span>Fulfilled<b>18</b></span></div>
+              <div class="order">
+                <div class="top">
+                  <div class="who"><i>KM</i><div><b>Kwame Mensah</b><small>#CE80EB · 4 min ago</small></div></div>
+                  <div class="tags"><span class="paid">Paid</span><span class="new">New</span></div>
+                </div>
+                <div class="lines">
+                  <div><span>1× Whey Protein 2kg <em>· Vanilla</em></span><span>GHS 450.00</span></div>
+                  <div><span>2× Creatine Monohydrate</span><span>GHS 360.00</span></div>
+                  <div class="tot"><span>Total</span><span>GHS 810.00</span></div>
+                </div>
+                <div class="foot"><small>Delivery · 12 Ring Road, Osu</small><b>Start preparing →</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lowstock">
+          <small>LOW STOCK</small>
+          <b>Whey Protein · Chocolate</b>
+          <em>2 left — restock before it sells out</em>
+        </div>
+      </div>
     </div>
     <div class="feat reveal">
       <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 7h16l-1 13H5L4 7ZM9 7a3 3 0 0 1 6 0"/></svg></div><h4>Your store in SubFit</h4><p>Products appear in the SubFit store with your photos, price and reviews, next to the gyms your customers use.</p></div>
@@ -399,6 +555,7 @@
       <div class="step"><div class="n">3</div><h4>Fulfil orders</h4><p>Members order in SubFit; you prepare and deliver or hand over.</p></div>
       <div class="step"><div class="n">4</div><h4>Get paid</h4><p>Your earnings are paid out monthly.</p></div>
     </div>
+    <div class="reveal" style="margin-top:26px"><a href="#start" data-demo="seller" class="btn btn-primary" style="background:var(--shop);color:#fff">Start selling</a></div>
   </div>
 </section>
 
@@ -409,13 +566,45 @@
       <span class="eyebrow">SubFit · the member app</span>
       <h2>Your customers are on SubFit</h2>
       <p>SubFit is the free app members use to find a gym, join, check in and shop. Every gym on Subgym gets a page there, and every seller gets a shelf in its store.</p>
-      <p style="margin-top:14px;font-size:14.5px;color:var(--muted)">Personal trainers can sell workout and diet plans to the same members with SubTrainer.</p>
+      <div class="mlist" style="margin-top:26px">
+        <div><b>Find a gym nearby</b>Photos, prices, classes and reviews.</div>
+        <div><b>Join in minutes</b>A plan or a day pass, paid by card or mobile money.</div>
+        <div><b>Check in with a QR</b>One pass, plus passes for family members.</div>
+        <div><b>Shop the store</b>Supplements and gear from local sellers.</div>
+      </div>
+      <p style="margin-top:18px;font-size:14.5px;color:var(--muted)">Personal trainers can sell workout and diet plans to the same members with SubTrainer.</p>
     </div>
-    <div class="mlist reveal">
-      <div><b>Find a gym nearby</b>Photos, prices, classes and reviews.</div>
-      <div><b>Join in minutes</b>A plan or a day pass, paid by card or mobile money.</div>
-      <div><b>Check in with a QR</b>One pass, plus passes for family members.</div>
-      <div><b>Shop the store</b>Supplements and gear from local sellers.</div>
+    <div class="device reveal" aria-label="The SubFit member app">
+      <div class="qr-badge" id="qrBadge" aria-hidden="true"></div>
+      <div class="screen" aria-label="SubFit home screen">
+        <div class="sf-head"><div><small>WELCOME BACK</small><b>Kwame</b></div><span class="av">KM</span></div>
+        <div class="sf-label">Your memberships</div>
+        <div class="mcard">
+          <div class="mrow">
+            <span class="status">ACTIVE</span>
+            <span class="streak"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 1s1 3.5-1.5 6.5S7 12 7 15a5 5 0 0 0 10 0c0-2-1-3.5-1-3.5s2.5 1 3 4c.5-5-5.5-8-5.5-14.5Z"/></svg>6 wk</span>
+          </div>
+          <b class="mgym">Iron Paradise</b>
+          <div class="mplan">Monthly Elite</div>
+          <div class="mmeta">Renews Oct 15 · 14 check-ins</div>
+          <div class="mbtns">
+            <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg>Show QR</span>
+            <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 2v20M4 6l16 12M20 6 4 18"/></svg>Freeze</span>
+          </div>
+        </div>
+        <div class="sf-label">Classes &amp; sessions</div>
+        <div class="crow">
+          <span class="cic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b4f04a" stroke-width="2.2" stroke-linecap="round"><circle cx="14" cy="4" r="2"/><path d="m7 21 3-6 3 2v5M6 12l3-3 4 1 3 4 3 1"/></svg></span>
+          <div><b>Sunrise Running Club</b><small>Iron Paradise · 11/12 booked</small></div>
+          <span class="book">Book</span>
+        </div>
+        <div class="tabbar">
+          <span class="act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Gyms</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8v8M9 8v8M15 8v8M18 8v8M9 12h6"/></svg>Train</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 7h16l-1 13H5L4 7ZM9 7a3 3 0 0 1 6 0"/></svg>Store</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profile</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -461,7 +650,7 @@
           <h4>Ask for your rate</h4>
           <p>Tell us about your gym or store and we’ll walk you through the rates and a demo.</p>
         </div>
-        <a href="#start" class="btn btn-primary" style="justify-content:center">Talk to us</a>
+        <a href="#start" class="btn btn-primary" style="justify-content:center">Request a demo</a>
       </div>
     </div>
   </div>
@@ -486,17 +675,59 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- DEMO REQUEST -->
 <section class="sec" id="start" style="padding-top:20px">
   <div class="wrap">
-    <div class="cta reveal">
+    <div class="demo reveal">
       <div class="glow"></div>
-      <span class="eyebrow">Get started</span>
-      <h2>Put your business on Subgym</h2>
-      <p>Book a short demo. We’ll show you the front desk, the SubFit listing, and what your first month could look like.</p>
-      <div class="btns">
-        <a href="mailto:hello@subgym.app?subject=List%20my%20gym%20on%20Subgym" class="btn btn-primary" style="font-size:16px;padding:14px 26px">List your gym</a>
-        <a href="mailto:hello@subgym.app?subject=Sell%20on%20Subgym" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Become a seller</a>
+      <div class="demo-grid">
+        <div class="demo-copy">
+          <span class="eyebrow">Get started</span>
+          <h2>Book a demo</h2>
+          <p>Tell us about your gym or store and we’ll get in touch to show you Subgym.</p>
+          <ol class="next">
+            <li>We call or email you to find a time that suits you.</li>
+            <li>We show you the front desk, your SubFit listing and your dashboard.</li>
+            <li>Send your documents, get verified, and go live.</li>
+          </ol>
+        </div>
+
+        <div>
+          <form id="demoForm" class="demo-form" novalidate hidden>
+            <div>
+              <div class="legend">I run a</div>
+              <div class="choice" role="radiogroup" aria-label="I run a">
+                <label><input type="radio" name="type" value="gym" required checked /><span class="dot"></span>Gym</label>
+                <label><input type="radio" name="type" value="seller" /><span class="dot"></span>Fitness store / seller</label>
+              </div>
+            </div>
+            <div class="row">
+              <label>Full name<input name="name" autocomplete="name" required placeholder="Ama Owusu" /></label>
+              <label>Phone number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="024 000 0000" pattern="[+0-9 ()-]{9,20}" /></label>
+            </div>
+            <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@yourgym.com" /></label>
+            <div class="row">
+              <label>Gym or business name<input name="business" autocomplete="organization" required placeholder="Iron Paradise" /></label>
+              <label><span>City or town <small>(optional)</small></span><input name="city" autocomplete="address-level2" placeholder="Accra" /></label>
+            </div>
+            <label><span>Anything we should know? <small>(optional)</small></span><textarea name="message" placeholder="e.g. We have 120 members and two front-desk staff."></textarea></label>
+            <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <p class="err" id="demoError" role="alert" hidden></p>
+            <button type="submit" class="btn btn-primary">Request a demo</button>
+            <p class="fine">We only use these details to contact you about Subgym.</p>
+          </form>
+
+          <div class="thanks" id="demoThanks" hidden>
+            <div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b4f04a" stroke-width="2.6"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Thanks — we’ve got your details</h3>
+            <p>We’ll be in touch soon to arrange your demo.</p>
+          </div>
+
+          <div class="fallback" id="demoFallback">
+            <a href="mailto:hello@subgym.app?subject=List%20my%20gym%20on%20Subgym" class="btn btn-primary" style="font-size:16px;padding:14px 26px">List your gym</a>
+            <a href="mailto:hello@subgym.app?subject=Sell%20on%20Subgym" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Become a seller</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -532,6 +763,74 @@
     var q = document.getElementById('qr');
     var p = "1110111101010111101111000100101011011110011011101";
     for (var i = 0; i < 49; i++) { var s = document.createElement('i'); if (p[i] === '1') s.className = 'on'; q.appendChild(s); }
+  })();
+  // SubFit phone QR badge (5×5)
+  (function(){
+    var q = document.getElementById('qrBadge'), p = "1110101101001011010110010";
+    for (var i = 0; i < 25; i++) { var s = document.createElement('i'); if (p[i] === '1') s.className = 'on'; q.appendChild(s); }
+  })();
+  // ── Demo request form → Google Form ────────────────────────────────
+  // Paste the Google Form's "formResponse" URL and each question's entry id.
+  // Until `action` is set, the form stays hidden and the email buttons show.
+  var DEMO_FORM = {
+    action: '',
+    fields: { type: '', name: '', email: '', phone: '', business: '', city: '', message: '' },
+    // How the "I run a" answer is written in the Google Form's options.
+    typeLabels: { gym: 'Gym', seller: 'Fitness store / seller' }
+  };
+  (function(){
+    var form = document.getElementById('demoForm');
+    var thanks = document.getElementById('demoThanks');
+    var fallback = document.getElementById('demoFallback');
+    var error = document.getElementById('demoError');
+    if (!DEMO_FORM.action) return;
+    form.hidden = false;
+    fallback.hidden = true;
+
+    // "List your gym" / "Become a seller" links pre-select the right option.
+    document.querySelectorAll('[data-demo]').forEach(function(link){
+      link.addEventListener('click', function(){
+        var radio = form.querySelector('input[name="type"][value="' + link.getAttribute('data-demo') + '"]');
+        if (radio) radio.checked = true;
+      });
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      error.hidden = true;
+      if (!form.checkValidity()) {
+        var bad = form.querySelector(':invalid');
+        error.textContent = bad && bad.name === 'email' ? 'Please enter a valid email address.'
+          : bad && bad.name === 'phone' ? 'Please enter a valid phone number.'
+          : 'Please fill in your name, phone number, email and business name.';
+        error.hidden = false;
+        if (bad) bad.focus();
+        return;
+      }
+      if (form.website.value) return; // spam bot filled the hidden field
+      var data = new URLSearchParams();
+      Object.keys(DEMO_FORM.fields).forEach(function(key){
+        var id = DEMO_FORM.fields[key];
+        if (!id) return;
+        var value = key === 'type'
+          ? DEMO_FORM.typeLabels[form.querySelector('input[name="type"]:checked').value]
+          : (form[key].value || '').trim();
+        if (value) data.append(id, value);
+      });
+      var button = form.querySelector('button');
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      // Google Forms doesn't send CORS headers, so the response is opaque;
+      // a resolved request means it reached Google.
+      fetch(DEMO_FORM.action, { method: 'POST', mode: 'no-cors', body: data })
+        .then(function(){ form.hidden = true; thanks.hidden = false; })
+        .catch(function(){
+          button.disabled = false;
+          button.textContent = 'Request a demo';
+          error.textContent = 'We couldn’t send that — check your connection and try again.';
+          error.hidden = false;
+        });
+    });
   })();
   // reveal on scroll
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});

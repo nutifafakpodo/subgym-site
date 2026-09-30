@@ -45,10 +45,23 @@ Everything is in `index.html` — content, styles (a `<style>` block), and a lit
 - **Brand colours** — the CSS variables in `:root`. They match SubFit (lime `--em` on
   near-black `--bg`), with SubGym blue (`--gym`) and SubVendor orange (`--shop`) for the
   gym and seller sections.
-- **Contact buttons** — the `mailto:hello@subgym.app` links ("Book a demo", "List your gym",
-  "Become a seller") → your real address or a form URL.
+- **Contact** — the demo form (see above); the `mailto:hello@subgym.app` fallback buttons
+  only show while the form isn't connected.
 - **Pricing** — deliberately gives no numbers ("commission-based, ask for your rate"); add
   rates once they're final.
+
+## Demo request form (Google Forms)
+
+The "Book a demo" form posts straight into a Google Form, so every request lands in the
+form's Responses tab (and its linked Google Sheet). It's configured in `DEMO_FORM` near the
+bottom of `index.html`:
+
+- `action` — the form's `https://docs.google.com/forms/d/e/<FORM_ID>/formResponse` URL
+- `fields` — the `entry.<number>` id of each question (name, email, phone, type, business,
+  city, message)
+- `typeLabels` — the exact option text of the "I run a" question
+
+While `action` is empty the form stays hidden and the email buttons show instead.
 
 ## Other hosts
 
