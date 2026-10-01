@@ -45,7 +45,7 @@
   .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-.02em}
   .logo .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--em),var(--deep));display:grid;place-items:center;box-shadow:0 6px 18px rgba(180,240,74,.25)}
   .navlinks{display:flex;align-items:center;gap:28px}
-  .navlinks a{font-size:14.5px;color:var(--muted2);font-weight:500}
+  .navlinks a{font-size:14.5px;color:var(--muted2);font-weight:500;white-space:nowrap}
   .navlinks a:hover{color:var(--ink)}
   .navcta{display:flex;align-items:center;gap:14px}
   .menu-btn{display:none;background:none;border:1px solid var(--line2);border-radius:10px;padding:8px;color:var(--ink)}
@@ -359,12 +359,13 @@
     .steps,.steps.four{grid-template-columns:1fr 1fr}
     .why{grid-template-columns:1fr 1fr}
     .hero h1{font-size:44px}
-  }
-  @media(max-width:640px){
-    .sec{padding:68px 0}
+    /* Six nav links don't fit beside the logo and button on tablets: use the menu. */
     .navlinks{display:none}
     .menu-btn{display:inline-flex}
     .navlinks.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:18px 24px;gap:16px}
+  }
+  @media(max-width:640px){
+    .sec{padding:68px 0}
     .feat,.steps,.steps.four,.why,.mlist{grid-template-columns:1fr}
     .hero h1{font-size:36px}
     .hero p.lead{font-size:17px}
