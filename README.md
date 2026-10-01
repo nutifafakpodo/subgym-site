@@ -2,9 +2,9 @@
 
 The public website for SubGym: **https://nutifafakpodo.github.io/subgym-site/**
 
-A single, self-contained static page, `index.html`. It sells SubGym to **gyms** (the SubGym portal) and
-**fitness sellers** (SubVendor) — the paying customers — with SubFit presented as where their
-customers are. No build step, no dependencies, no external requests (inline SVG icons,
+A single, self-contained static page, `index.html`. It sells SubGym to **gyms** (the SubGym portal),
+**fitness sellers** (SubVendor) and **personal trainers** (SubTrainer) — the paying customers — with
+SubFit presented as where their customers are. No build step, no dependencies, no external requests (inline SVG icons,
 CSS-gradient art, data-URI favicon) — it works offline and deploys anywhere.
 
 This repo is the website's only home. The product apps live in the private
@@ -43,8 +43,8 @@ Everything is in `index.html` — content, styles (a `<style>` block), and a lit
 
 - **Copy / sections** — edit the HTML directly.
 - **Brand colours** — the CSS variables in `:root`. They match SubFit (lime `--em` on
-  near-black `--bg`), with SubGym blue (`--gym`) and SubVendor orange (`--shop`) for the
-  gym and seller sections.
+  near-black `--bg`), with SubGym blue (`--gym`), SubVendor orange (`--shop`) and SubTrainer
+  purple (`--coach`) for the gym, seller and trainer sections.
 - **Contact** — the demo form (see above); the `mailto:hello@subgym.app` fallback buttons
   only show while the form isn't connected.
 - **Pricing** — deliberately gives no numbers ("commission-based, ask for your rate"); add
@@ -61,7 +61,9 @@ response" off; otherwise Google rejects the site's submissions. It's configured 
 - `action` — the form's `https://docs.google.com/forms/d/e/<FORM_ID>/formResponse` URL
 - `fields` — the `entry.<number>` id of each question (name, email, phone, type, business,
   city, message)
-- `typeLabels` — the exact option text of the "I run a" question
+- `typeLabels` — the exact option text of the "I run a" question (Gym, Fitness store / seller,
+  Personal trainer). A value the form doesn't offer is silently dropped by Google, so add the
+  option to the form before the site sends it.
 
 While `action` is empty the form stays hidden and the email buttons show instead. If you
 rebuild the form, the entry ids change: read them from the new form's public page

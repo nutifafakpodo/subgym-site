@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SubGym — grow your gym or fitness store in Ghana</title>
-<meta name="description" content="SubGym helps Ghanaian gyms sell memberships and day passes, check members in with a QR code, and get paid — and puts gyms and fitness sellers in front of members on the SubFit app." />
+<title>SubGym — for gyms, fitness sellers and trainers in Ghana</title>
+<meta name="description" content="SubGym helps Ghanaian gyms sell memberships and day passes, check members in with a QR code, and get paid — and puts gyms, fitness sellers and personal trainers in front of members on the SubFit app." />
 <meta name="theme-color" content="#0a0c0a" />
-<meta property="og:title" content="SubGym — grow your gym or fitness store in Ghana" />
-<meta property="og:description" content="Sell memberships, check members in with a QR code, and reach members on SubFit. For gyms and fitness sellers in Ghana." />
+<meta property="og:title" content="SubGym — for gyms, fitness sellers and trainers in Ghana" />
+<meta property="og:description" content="Sell memberships, products and training plans, and reach members on SubFit. For gyms, fitness sellers and personal trainers in Ghana." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4f04a'/%3E%3Cpath d='M9 12h3v8H9zm11 0h3v8h-3zM12 15h8v2h-8z' fill='%230a0c0a'/%3E%3C/svg%3E" />
 <style>
@@ -19,7 +19,7 @@
     --line:rgba(155,163,155,.14); --line2:rgba(155,163,155,.24);
     --ink:#ffffff; --muted:#9ba39b; --muted2:#c9cfc6;
     --em:#b4f04a; --em2:#c8f57a; --deep:#7cc62d; --on-em:#0a0c0a;
-    --gym:#3b82f6; --gym2:#60a5fa; --shop:#f97316; --shop2:#fb923c; --ok:#22c55e;
+    --gym:#3b82f6; --gym2:#60a5fa; --shop:#f97316; --shop2:#fb923c; --coach:#a855f7; --coach2:#c084fc; --ok:#22c55e;
     --maxw:1160px; --r:18px;
     --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
@@ -176,6 +176,35 @@
   .lowstock b{display:block;font-size:11.5px;margin:3px 0 2px}
   .lowstock em{font-style:normal;font-size:9.5px;color:#a8a29e}
 
+  /* SubTrainer plans mock (trainers section) */
+  .browser.trainer{background:#120f17;border-color:rgba(196,181,253,.16)}
+  .browser.trainer .bar{background:#18141f;border-bottom-color:rgba(196,181,253,.12)}
+  .browser.trainer .bar i{background:#342b40}
+  .browser.trainer .bar em{background:#120f17;color:#a99fbb}
+  .tapp{display:grid;grid-template-columns:112px 1fr;min-height:300px}
+  .tside{background:#16121c;border-right:1px solid rgba(196,181,253,.1);padding:14px 10px}
+  .tside .brand{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:800;margin-bottom:14px}
+  .tside .brand i{width:20px;height:20px;border-radius:6px;background:var(--coach)}
+  .tside span{display:block;font-size:10px;color:#a99fbb;padding:6px 8px;border-radius:7px;margin-bottom:2px}
+  .tside span.on{background:rgba(168,85,247,.18);color:#e9d5ff}
+  .tmain{padding:16px;background:#0f0c13}
+  .tmain h4{font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .tmain .sub{font-size:10px;color:#a99fbb;margin-bottom:12px}
+  .tplan{border:1px solid rgba(196,181,253,.12);border-radius:12px;background:#141019;padding:11px 12px;margin-bottom:8px}
+  .tplan .tp-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .tplan b{font-size:11.5px;letter-spacing:-.01em}
+  .tplan .tp-tag{font-size:8.5px;font-weight:700;padding:2px 7px;border-radius:999px;white-space:nowrap}
+  .tplan .live{background:rgba(34,197,94,.14);color:#4ade80}
+  .tplan .draft{background:rgba(148,163,184,.14);color:#cbd5e1}
+  .tplan .tp-meta{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px;font-size:9.5px;color:#a99fbb}
+  .tplan .tp-meta .star{color:#f5b83d;font-weight:700}
+  .tplan .tp-price{margin-top:6px;font-size:10px;font-weight:700;color:#f3e8ff}
+  .winc{position:absolute;left:0;bottom:0;width:206px;background:#050605;border:1px solid var(--line2);border-radius:18px;padding:13px 14px;box-shadow:0 24px 40px -18px rgba(0,0,0,.8)}
+  .winc small{display:block;font-size:8.5px;font-weight:800;letter-spacing:.12em;color:var(--em)}
+  .winc b{display:block;font-size:12.5px;margin:3px 0 8px}
+  .winc .done{display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:700;background:rgba(180,240,74,.1);color:var(--em2);padding:6px 9px;border-radius:9px}
+  .winc em{display:block;font-style:normal;font-size:9.5px;color:var(--muted);margin-top:8px}
+
   /* section header */
   .sechead{max-width:720px;margin-bottom:48px}
   .sechead h2{font-size:40px;font-weight:800;margin:14px 0 14px}
@@ -183,13 +212,15 @@
   .center{text-align:center;margin-left:auto;margin-right:auto}
 
   /* two audiences */
-  .aud{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .aud{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .acard{border-radius:22px;padding:34px;border:1px solid var(--line);position:relative;overflow:hidden}
   .acard.gym{background:linear-gradient(150deg,rgba(59,130,246,.14),rgba(59,130,246,.02) 60%);border-color:rgba(59,130,246,.3)}
   .acard.shop{background:linear-gradient(150deg,rgba(249,115,22,.14),rgba(249,115,22,.02) 60%);border-color:rgba(249,115,22,.3)}
+  .acard.coach{background:linear-gradient(150deg,rgba(168,85,247,.14),rgba(168,85,247,.02) 60%);border-color:rgba(168,85,247,.3)}
   .acard .tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px}
   .acard.gym .tag{background:rgba(59,130,246,.16);color:var(--gym2)}
   .acard.shop .tag{background:rgba(249,115,22,.16);color:var(--shop2)}
+  .acard.coach .tag{background:rgba(168,85,247,.16);color:var(--coach2)}
   .acard h3{font-size:27px;font-weight:800;margin:18px 0 10px}
   .acard p{color:var(--muted2);font-size:15.5px}
   .acard ul{list-style:none;margin:22px 0 26px;display:grid;gap:11px}
@@ -197,9 +228,11 @@
   .acard li svg{width:18px;height:18px;flex:none;margin-top:2px}
   .acard.gym li svg{color:var(--gym2)}
   .acard.shop li svg{color:var(--shop2)}
+  .acard.coach li svg{color:var(--coach2)}
   .acard .go{font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:7px}
   .acard.gym .go{color:var(--gym2)}
   .acard.shop .go{color:var(--shop2)}
+  .acard.coach .go{color:var(--coach2)}
 
   /* feature grid */
   .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -209,6 +242,7 @@
   .fcard .fi svg{width:22px;height:22px}
   .gymsec .fi{background:rgba(59,130,246,.14);color:var(--gym2)}
   .shopsec .fi{background:rgba(249,115,22,.14);color:var(--shop2)}
+  .coachsec .fi{background:rgba(168,85,247,.14);color:var(--coach2)}
   .fcard h4{font-size:16.5px;margin-bottom:6px}
   .fcard p{font-size:14px;color:var(--muted)}
   .also{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
@@ -221,6 +255,7 @@
   .step .n{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;margin-bottom:14px}
   .gymsec .step .n{background:var(--gym);color:#fff}
   .shopsec .step .n{background:var(--shop);color:#fff}
+  .coachsec .step .n{background:var(--coach);color:#fff}
   .step h4{font-size:15.5px;margin-bottom:5px}
   .step p{font-size:13.5px;color:var(--muted)}
   .subhead{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:52px 0 18px}
@@ -284,7 +319,7 @@
   .demo-form textarea{resize:vertical;min-height:84px}
   .demo-form input:focus,.demo-form textarea:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(180,240,74,.18)}
   .demo-form input::placeholder,.demo-form textarea::placeholder{color:#6c736c}
-  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .choice{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .choice label{position:relative;display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;cursor:pointer;color:var(--ink);font-size:14.5px}
   .choice input{position:absolute;opacity:0;pointer-events:none}
   .choice .dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--line2);flex:none}
@@ -316,6 +351,7 @@
 
   @media(max-width:980px){
     .hero-grid,.band-grid,.price,.seller-top,.demo-grid{grid-template-columns:1fr;gap:44px}
+    .tvisual{max-width:560px;margin:0 auto;width:100%}
     .vvisual{max-width:560px;margin:0 auto;width:100%}
     .visual{max-width:560px;margin:0 auto;width:100%}
     .aud{grid-template-columns:1fr}
@@ -349,6 +385,10 @@
     .vapp{grid-template-columns:1fr}
     .vside{display:none}
     .lowstock{left:auto;right:12px}
+    .tvisual{padding:0 0 92px}
+    .tapp{grid-template-columns:1fr}
+    .tside{display:none}
+    .winc{left:auto;right:12px}
   }
 </style>
 <script>document.documentElement.className += ' js';</script>
@@ -366,6 +406,7 @@
     <nav class="navlinks" id="nav">
       <a href="#gyms">For gyms</a>
       <a href="#sellers">For sellers</a>
+      <a href="#trainers">For trainers</a>
       <a href="#members">Members</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -384,9 +425,9 @@
   <div class="glow"></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="pill">For gyms and fitness sellers in Ghana</span>
+      <span class="pill">For gyms, fitness sellers and trainers in Ghana</span>
       <h1>Fill your gym. <span class="accent">Run it from one screen.</span></h1>
-      <p class="lead">SubGym gives your gym everything to sell memberships and day passes, check members in with a QR code, and get paid — and puts you in front of members on the SubFit app. Fitness sellers reach those same members through the SubFit store.</p>
+      <p class="lead">SubGym gives your gym everything to sell memberships and day passes, check members in with a QR code, and get paid — and puts you in front of members on the SubFit app. Fitness sellers and personal trainers reach those same members through SubFit.</p>
       <div class="hero-cta">
         <a href="#start" data-demo="gym" class="btn btn-primary">List your gym <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="#sellers" class="btn btn-ghost">I sell fitness products</a>
@@ -461,6 +502,18 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Get paid out monthly, with every sale on record</li>
         </ul>
         <a href="#sellers" class="go">See what sellers get →</a>
+      </div>
+      <div class="acard coach">
+        <span class="tag">For trainers</span>
+        <h3>Your plans, in every member’s pocket.</h3>
+        <p>Sell workout and meal plans in SubFit and coach the members who subscribe — from the web or your phone.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Build workout days or meal plans with calories and macros</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sell monthly access, a plan to keep, or both — at your prices</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Ratings and reviews help members choose your plans</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Members earn points and streaks for sticking to them</li>
+        </ul>
+        <a href="#trainers" class="go">See what trainers get →</a>
       </div>
     </div>
   </div>
@@ -559,20 +612,87 @@
   </div>
 </section>
 
+<!-- FOR TRAINERS -->
+<section class="sec coachsec" id="trainers" style="background:linear-gradient(180deg,transparent,rgba(18,22,18,.6))">
+  <div class="wrap">
+    <div class="seller-top">
+      <div class="sechead reveal">
+        <span class="eyebrow" style="color:var(--coach2)">SubTrainer · for personal trainers</span>
+        <h2>Sell your plans to Ghana’s gym-goers</h2>
+        <p>Build your workout and meal plans once, sell them in SubFit, and coach the members who subscribe. SubTrainer works in the browser and on your phone.</p>
+      </div>
+      <div class="vvisual tvisual reveal" aria-label="The SubTrainer plans screen, and a member finishing a workout in SubFit">
+        <div class="browser trainer">
+          <div class="bar"><i></i><i></i><i></i><em>SubTrainer · Plans</em></div>
+          <div class="tapp">
+            <div class="tside">
+              <div class="brand"><i></i>SubTrainer</div>
+              <span>Dashboard</span><span class="on">Plans</span><span>Subscribers</span><span>Groups</span><span>Reviews</span><span>Earnings</span>
+            </div>
+            <div class="tmain">
+              <h4>Plans</h4>
+              <div class="sub">Sell them in SubFit, or send them to your subscribers</div>
+              <div class="tplan">
+                <div class="tp-top"><b>Four Week Strength Base</b><span class="tp-tag live">Published</span></div>
+                <div class="tp-meta"><span>Workout · 3 days a week</span><span class="star">★ 4.8 (24)</span><span>31 members</span></div>
+                <div class="tp-price">GHS 180 / month · GHS 500 to keep</div>
+              </div>
+              <div class="tplan">
+                <div class="tp-top"><b>Lean Bulk Meal Plan</b><span class="tp-tag live">Published</span></div>
+                <div class="tp-meta"><span>Meal plan · 2,800 kcal</span><span class="star">★ 4.6 (12)</span><span>18 members</span></div>
+                <div class="tp-price">GHS 120 / month</div>
+              </div>
+              <div class="tplan">
+                <div class="tp-top"><b>Home Bodyweight Starter</b><span class="tp-tag draft">Draft</span></div>
+                <div class="tp-meta"><span>Workout · 4 weeks</span><span>Not for sale yet</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="winc">
+          <small>SUBFIT · TODAY</small>
+          <b>Week 2 · Lower body</b>
+          <div class="done"><span>✓ Workout done</span><span>+15 pts</span></div>
+          <em>2-week streak · Level 3</em>
+        </div>
+      </div>
+    </div>
+    <div class="feat reveal">
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg></div><h4>Plans built properly</h4><p>Workout days with exercises, sets, reps, rest and form tips — or meals with calories and macros. Members see what’s inside before they buy, never the plan itself.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12 12 20l-8-8V4h8l8 8Z" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></div><h4>Monthly, or to keep</h4><p>Sell monthly access, where members get every update, or a version to keep — or both. You set the prices; members pay upfront by card or mobile money.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Checked by SubGym</h4><p>We check your certificates before your plans go live, so members know they come from a real trainer.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke-linejoin="round"/></svg></div><h4>Reviews that sell</h4><p>Members rate your plans and you. Ratings and written reviews show on every plan before anyone pays.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-4-3-6.5-4-10-2.5 2-3 4-3 6-1.5-1-2-2.5-2-4C7 9 5 11.5 5 15a7 7 0 0 0 7 7Z" stroke-linejoin="round"/></svg></div><h4>Members who finish</h4><p>Members start your plan on the days they choose and get a reminder each morning. Points, badges and streaks — and friends who buy your plan too — keep them going.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h4>Coach your subscribers</h4><p>Put subscribers in groups and send them plans, even private ones that aren’t for sale. Every edit reaches monthly members; buyers keep their version.</p></div>
+    </div>
+    <div class="also reveal">Also included: <span>Subscriber list</span><span>Plan versions &amp; updates</span><span>Earnings &amp; SubGym’s commission on every sale</span><span>Payouts to mobile money or bank</span><span>Mobile app for trainers</span></div>
+
+    <div class="subhead reveal">How selling plans works</div>
+    <div class="steps four reveal">
+      <div class="step"><div class="n">1</div><h4>Set up your profile</h4><p>Your name, specialties, bio and certificates.</p></div>
+      <div class="step"><div class="n">2</div><h4>Get checked</h4><p>We review your certificates, then you go live in SubFit.</p></div>
+      <div class="step"><div class="n">3</div><h4>Publish plans</h4><p>Build a workout or meal plan and set your prices.</p></div>
+      <div class="step"><div class="n">4</div><h4>Get paid</h4><p>Members buy in SubFit; your earnings are paid out to you.</p></div>
+    </div>
+    <div class="reveal" style="margin-top:26px"><a href="#start" data-demo="trainer" class="btn btn-primary" style="background:var(--coach);color:#fff">Start selling plans</a></div>
+  </div>
+</section>
+
 <!-- MEMBERS BRING THE DEMAND -->
 <section class="band" id="members">
   <div class="wrap sec band-grid">
     <div class="reveal">
       <span class="eyebrow">SubFit · the member app</span>
       <h2>Your customers are on SubFit</h2>
-      <p>SubFit is the free app members use to find a gym, join, check in and shop. Every gym on SubGym gets a page there, and every seller gets a shelf in its store.</p>
+      <p>SubFit is the free app members use to find a gym, join, check in, shop and train. Every gym on SubGym gets a page there, every seller a shelf in its store, and every trainer a profile for their plans.</p>
       <div class="mlist" style="margin-top:26px">
         <div><b>Find a gym nearby</b>Photos, prices, classes and reviews.</div>
         <div><b>Join in minutes</b>A plan or a day pass, paid by card or mobile money.</div>
         <div><b>Check in with a QR</b>One pass, plus passes for family members.</div>
         <div><b>Shop the store</b>Supplements and gear from local sellers.</div>
+        <div><b>Follow a trainer’s plan</b>Workout and meal plans with reviews, from checked trainers.</div>
+        <div><b>Earn points with friends</b>Streaks, badges and a daily reminder of what to do.</div>
       </div>
-      <p style="margin-top:18px;font-size:14.5px;color:var(--muted)">Personal trainers can sell workout and diet plans to the same members with SubTrainer.</p>
     </div>
     <div class="device reveal" aria-label="The SubFit member app">
       <div class="qr-badge" id="qrBadge" aria-hidden="true"></div>
@@ -642,13 +762,14 @@
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gyms: a share of each membership and day pass sold through SubFit</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sellers: a share of each order, by product category</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Front desk, members, classes, reminders and reports included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Trainers: a share of each plan sold, monthly or to keep</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Every tool included: front desk, store, plan builder, reviews and reports</li>
         </ul>
       </div>
       <div class="side-p">
         <div>
           <h4>Ask for your rate</h4>
-          <p>Tell us about your gym or store and we’ll walk you through the rates and a demo.</p>
+          <p>Tell us about your gym, store or training and we’ll walk you through the rates and a demo.</p>
         </div>
         <a href="#start" class="btn btn-primary" style="justify-content:center">Request a demo</a>
       </div>
@@ -661,7 +782,7 @@
   <div class="wrap">
     <div class="sechead center reveal">
       <span class="eyebrow">FAQ</span>
-      <h2>Questions gyms and sellers ask</h2>
+      <h2>Questions gyms, sellers and trainers ask</h2>
     </div>
     <div class="faq reveal">
       <details><summary>Do I need turnstiles or special hardware?</summary><p>No. Your front desk opens SubGym in the browser on a laptop or tablet. Members show the QR pass in SubFit; staff scan it with a plug-in barcode scanner, or type the code.</p></details>
@@ -669,8 +790,11 @@
       <details><summary>How do members pay?</summary><p>In the SubFit app, by card or mobile money, paid upfront.</p></details>
       <details><summary>Can my front-desk staff use it without seeing everything?</summary><p>Yes. Staff accounts can check members in and look them up. Plans, pricing, reports and payouts stay with the owner.</p></details>
       <details><summary>What if a member travels or gets injured?</summary><p>You — or the member in SubFit — can freeze the membership. A frozen pass is refused at the door until it’s unfrozen, and you can extend a membership with the reason on record.</p></details>
-      <details><summary>How do I get listed?</summary><p>Sign up and send your business documents. Once we’ve verified them, your gym or store goes live in SubFit.</p></details>
+      <details><summary>How do I get listed?</summary><p>Sign up and send your documents — business documents for gyms and stores, certificates for trainers. Once we’ve checked them, you go live in SubFit.</p></details>
       <details><summary>I sell supplements and gear — do I need my own website?</summary><p>No. SubVendor gives you a store inside SubFit, plus the tools to manage stock, fulfil orders and see your payouts.</p></details>
+      <details><summary>I’m a personal trainer — how do I sell plans?</summary><p>With SubTrainer. Set up your profile and send your certificates; once we’ve checked them, your plans go live in SubFit. Choose monthly access, a version to keep, or both, and set your own prices.</p></details>
+      <details><summary>Do members see my plan before they pay?</summary><p>They see what’s inside — the days or meals, the level and the length — plus ratings and reviews from members who have it. The plan itself only opens once they’ve bought it.</p></details>
+      <details><summary>What keeps members going once they buy?</summary><p>In SubFit, members start your plan on the days they choose and get a reminder each morning of what to do. They earn points, badges and streaks for every workout, and can go through your plan with friends — each of whom buys it too.</p></details>
     </div>
   </div>
 </section>
@@ -684,10 +808,10 @@
         <div class="demo-copy">
           <span class="eyebrow">Get started</span>
           <h2>Book a demo</h2>
-          <p>Tell us about your gym or store and we’ll get in touch to show you SubGym.</p>
+          <p>Tell us about your gym, store or training business and we’ll get in touch to show you SubGym.</p>
           <ol class="next">
             <li>We call or email you to find a time that suits you.</li>
-            <li>We show you the front desk, your SubFit listing and your dashboard.</li>
+            <li>We show you your dashboard and how you’ll appear in SubFit.</li>
             <li>Send your documents, get verified, and go live.</li>
           </ol>
         </div>
@@ -699,6 +823,7 @@
               <div class="choice" role="radiogroup" aria-label="I run a">
                 <label><input type="radio" name="type" value="gym" required checked /><span class="dot"></span>Gym</label>
                 <label><input type="radio" name="type" value="seller" /><span class="dot"></span>Fitness store / seller</label>
+                <label><input type="radio" name="type" value="trainer" /><span class="dot"></span>Personal trainer</label>
               </div>
             </div>
             <div class="row">
@@ -707,7 +832,7 @@
             </div>
             <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@yourgym.com" /></label>
             <div class="row">
-              <label>Gym or business name<input name="business" autocomplete="organization" required placeholder="Iron Paradise" /></label>
+              <label>Gym, business or trainer name<input name="business" autocomplete="organization" required placeholder="Iron Paradise" /></label>
               <label><span>City or town <small>(optional)</small></span><input name="city" autocomplete="address-level2" placeholder="Accra" /></label>
             </div>
             <label><span>Anything we should know? <small>(optional)</small></span><textarea name="message" placeholder="e.g. We have 120 members and two front-desk staff."></textarea></label>
@@ -726,6 +851,7 @@
           <div class="fallback" id="demoFallback">
             <a href="mailto:hello@subgym.app?subject=List%20my%20gym%20on%20SubGym" class="btn btn-primary" style="font-size:16px;padding:14px 26px">List your gym</a>
             <a href="mailto:hello@subgym.app?subject=Sell%20on%20SubGym" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Become a seller</a>
+            <a href="mailto:hello@subgym.app?subject=Sell%20plans%20on%20SubTrainer" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Sell training plans</a>
           </div>
         </div>
       </div>
@@ -744,6 +870,7 @@
     <div class="foot-links">
       <a href="#gyms">For gyms</a>
       <a href="#sellers">For sellers</a>
+      <a href="#trainers">For trainers</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="#start">Book a demo</a>
@@ -785,7 +912,7 @@
       message: 'entry.743180777'
     },
     // How the "I run a" answer is written in the Google Form's options.
-    typeLabels: { gym: 'Gym', seller: 'Fitness store / seller' }
+    typeLabels: { gym: 'Gym', seller: 'Fitness store / seller', trainer: 'Personal trainer' }
   };
   (function(){
     var form = document.getElementById('demoForm');
