@@ -1,6 +1,6 @@
 # SubGym — marketing site
 
-The public website for SubGym: **https://nutifafakpodo.github.io/subgym-site/**
+The public website for SubGym: **https://subgym.online** (GitHub Pages, custom domain set by `CNAME`)
 
 A single, self-contained static page, `index.html`. It sells SubGym to **gyms** (the SubGym portal),
 **fitness sellers** (SubVendor) and **personal trainers** (SubTrainer) — the paying customers — with
