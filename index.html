@@ -410,10 +410,111 @@
     .tside{display:none}
     .winc{left:auto;right:12px}
   }
+
+  /* ── Motion layer ─────────────────────────────────────────────────
+     The products' own things (dumbbells, bags, plans, passes) drifting
+     behind the whole page in each product's colour, as on the apps'
+     sign-in screens. Decorative only: hidden from screen readers, never
+     takes a click, and holds still for people who ask for reduced motion. */
+  .drift{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+    /* strongest at the sides, faint behind the reading column */
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 14%,rgba(0,0,0,.28) 34%,rgba(0,0,0,.28) 66%,#000 86%,#000 100%);
+    mask-image:linear-gradient(90deg,#000 0,#000 14%,rgba(0,0,0,.28) 34%,rgba(0,0,0,.28) 66%,#000 86%,#000 100%)}
+  @media(max-width:640px){.drift{-webkit-mask-image:none;mask-image:none;opacity:.42}.drift .ic.ic{width:calc(var(--s) * .72);height:calc(var(--s) * .72)}}
+  .drift .ic{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);color:var(--c);opacity:var(--o);will-change:transform}
+  .drift .ic svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;filter:blur(var(--b,0));transform:rotate(var(--r));animation:drift var(--d) ease-in-out var(--dl) infinite}
+  @keyframes drift{
+    0%,100%{transform:translate3d(0,0,0) rotate(var(--r))}
+    33%{transform:translate3d(10px,-16px,0) rotate(calc(var(--r) + 7deg))}
+    66%{transform:translate3d(-8px,-26px,0) rotate(calc(var(--r) - 5deg))}
+  }
+  section,footer,.ticker{z-index:1}
+  .band{background:linear-gradient(120deg,rgba(15,18,15,.78),rgba(13,16,13,.7))}
+  .acard{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+  /* scroll progress + a header that firms up once the page moves */
+  .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--gym),var(--em),var(--shop),var(--coach));transform-origin:0 50%;transform:scaleX(var(--p,0))}
+  header{transition:background .3s,box-shadow .3s}
+  header.scrolled{background:rgba(10,12,10,.9);box-shadow:0 10px 30px -18px rgba(0,0,0,.9)}
+
+  /* the hero's glows move slowly, and its picture leans toward the pointer */
+  .hero .glow::before{animation:aurora 18s ease-in-out infinite alternate}
+  .hero .glow::after{animation:aurora2 22s ease-in-out infinite alternate}
+  @keyframes aurora{to{transform:translateX(-55%) translateY(60px) scale(1.15)}}
+  @keyframes aurora2{to{transform:translate(-120px,80px) scale(1.2)}}
+  .hero h1 .accent{background-size:200% 100%;animation:shine 7s ease-in-out infinite}
+  @keyframes shine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .visual{transition:transform .5s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+  .pass{animation:bob 6s ease-in-out infinite}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+  .btn-primary{box-shadow:0 0 0 0 rgba(180,240,74,0)}
+  .btn-primary:hover{box-shadow:0 10px 30px -10px rgba(180,240,74,.55)}
+
+  /* cards light up under the pointer */
+  .spot{position:relative;isolation:isolate}
+  .spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(180,240,74,.09),transparent 45%);z-index:-1}
+  .spot:hover::after{opacity:1}
+
+  /* what's in it, sliding by under the hero */
+  .ticker{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(10,12,10,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .ticker .track{display:flex;width:max-content;animation:slide 48s linear infinite}
+  .ticker:hover .track{animation-play-state:paused}
+  .ticker ul{display:flex;list-style:none;flex:none}
+  .ticker li{display:flex;align-items:center;gap:10px;padding:18px 26px;font-size:14.5px;font-weight:600;color:var(--muted2);white-space:nowrap}
+  .ticker li svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* reveals arrive one after another inside a grid */
+  .js .reveal{transition-delay:var(--stagger,0s)}
+
+  @media(max-width:640px){
+    .drift .ic.wide{display:none}
+    .ticker li{padding:15px 18px;font-size:13.5px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .drift .ic svg,.hero .glow::before,.hero .glow::after,.hero h1 .accent,.pass,.ticker .track{animation:none}
+    .ticker .track{flex-wrap:wrap;width:auto}
+    .ticker ul[aria-hidden]{display:none}
+    .visual{transition:none}
+  }
 </style>
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></symbol>
+<symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></symbol>
+<symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"/><path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"/><path d="M18 9h1.5a1 1 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6 9H4.5a1 1 0 0 1 0-5H6"/></symbol>
+<symbol id="i-bike" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></symbol>
+<symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></symbol>
+<symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+<symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></symbol>
+<symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></symbol>
+<symbol id="i-shirt" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+<symbol id="i-cup-soda" viewBox="0 0 24 24"><path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"/><path d="M5 8h14"/><path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/><path d="m12 8 1-6h2"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+<symbol id="i-biceps-flexed" viewBox="0 0 24 24"><path d="M12.409 13.017A5 5 0 0 1 22 15c0 3.866-4 7-9 7-4.077 0-8.153-.82-10.371-2.462-.426-.316-.631-.832-.62-1.362C2.118 12.723 2.627 2 10 2a3 3 0 0 1 3 3 2 2 0 0 1-2 2c-1.105 0-1.64-.444-2-1"/><path d="M15 14a5 5 0 0 0-7.584 2"/><path d="M9.964 6.825C8.019 7.977 9.5 13 8 15"/></symbol>
+<symbol id="i-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 6.528V3a1 1 0 0 1 1-1h0"/><path d="M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21"/></symbol>
+<symbol id="i-salad" viewBox="0 0 24 24"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/><path d="m13 12 4-4"/><path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"/></symbol>
+<symbol id="i-medal" viewBox="0 0 24 24"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></symbol>
+<symbol id="i-footprints" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></symbol>
+<symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+<symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+<symbol id="i-snowflake" viewBox="0 0 24 24"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"/><rect x="3" y="7" width="18" height="4" rx="1"/></symbol>
+<symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+</svg>
+<div class="drift" id="drift" aria-hidden="true"></div>
 
 <header>
   <div class="wrap nav">
@@ -504,6 +605,10 @@
     </div>
   </div>
 </section>
+
+<div class="ticker" aria-label="What gyms get with SubGym">
+  <div class="track"><ul><li><svg style="color:#b4f04a"><use href="#i-qr-code"/></svg>Check in with a QR code</li><li><svg style="color:#60a5fa"><use href="#i-credit-card"/></svg>Card &amp; mobile money</li><li><svg style="color:#b4f04a"><use href="#i-calendar-check"/></svg>Monthly, quarterly and annual plans</li><li><svg style="color:#60a5fa"><use href="#i-timer"/></svg>Day passes</li><li><svg style="color:#b4f04a"><use href="#i-users"/></svg>Front-desk staff accounts</li><li><svg style="color:#60a5fa"><use href="#i-wallet"/></svg>Payouts to mobile money or bank</li><li><svg style="color:#b4f04a"><use href="#i-snowflake"/></svg>Freeze a membership</li><li><svg style="color:#60a5fa"><use href="#i-gift"/></svg>A birthday day pass</li></ul><ul aria-hidden="true"><li><svg style="color:#b4f04a"><use href="#i-qr-code"/></svg>Check in with a QR code</li><li><svg style="color:#60a5fa"><use href="#i-credit-card"/></svg>Card &amp; mobile money</li><li><svg style="color:#b4f04a"><use href="#i-calendar-check"/></svg>Monthly, quarterly and annual plans</li><li><svg style="color:#60a5fa"><use href="#i-timer"/></svg>Day passes</li><li><svg style="color:#b4f04a"><use href="#i-users"/></svg>Front-desk staff accounts</li><li><svg style="color:#60a5fa"><use href="#i-wallet"/></svg>Payouts to mobile money or bank</li><li><svg style="color:#b4f04a"><use href="#i-snowflake"/></svg>Freeze a membership</li><li><svg style="color:#60a5fa"><use href="#i-gift"/></svg>A birthday day pass</li></ul></div>
+</div>
 
 <!-- TWO AUDIENCES -->
 <section class="sec" style="padding-top:40px">
@@ -1073,6 +1178,87 @@
         });
     });
   })();
+
+  // ── Motion layer ───────────────────────────────────────────────────
+  // Each product's icons in its colour: SubGym blue, SubVendor orange,
+  // SubTrainer purple, SubFit lime. x/y: where on screen (%), s: size (px),
+  // z: depth (near ones are bigger, brighter and move more), wide: hidden on
+  // phones. They drift on their own (CSS) and sway with the pointer and the
+  // scroll; still for reduced motion.
+  (function(){
+    var C = { gym:'#60a5fa', shop:'#fb923c', coach:'#c084fc', fit:'#b4f04a' };
+    var ICONS = [
+      ['dumbbell','gym',5,9,46,1,0], ['heart-pulse','gym',91,14,34,.6,1], ['timer','gym',62,7,26,.35,1], ['qr-code','fit',33,18,30,.45,1],
+      ['shopping-bag','shop',86,34,44,.9,0], ['biceps-flexed','coach',3,38,40,.8,0], ['package','shop',48,30,24,.3,1], ['apple','coach',72,48,30,.5,1],
+      ['flame','gym',18,56,28,.4,1], ['smartphone','fit',93,60,36,.7,0], ['clipboard-list','coach',40,64,34,.55,1], ['shirt','shop',7,72,38,.75,0],
+      ['trophy','gym',80,78,42,.85,0], ['salad','coach',56,82,26,.35,1], ['truck','shop',26,88,34,.6,1], ['droplet','fit',4,92,28,.5,0],
+      ['medal','coach',90,92,30,.45,0], ['bike','gym',66,24,32,.5,1], ['cup-soda','shop',22,4,28,.4,1], ['zap','fit',50,52,22,.25,1],
+      ['footprints','coach',76,4,30,.55,0], ['calendar-check','gym',35,44,24,.3,1], ['tag','shop',60,66,26,.4,1], ['activity','fit',14,24,26,.35,1]
+    ];
+    var layer = document.getElementById('drift'), items = [];
+    ICONS.forEach(function(d, i){
+      var el = document.createElement('span');
+      el.className = 'ic' + (d[6] ? ' wide' : '');
+      var z = d[5];
+      el.style.cssText = '--x:' + d[2] + '%;--y:' + d[3] + '%;--s:' + d[4] + 'px;--c:' + C[d[1]] +
+        ';--o:' + (0.16 + z * 0.3).toFixed(2) + ';--b:' + (z < 0.4 ? '1px' : '0') + ';--r:' + ((i * 37) % 40 - 20) + 'deg' +
+        ';--d:' + (9 + (i * 7) % 8) + 's;--dl:-' + ((i * 13) % 10) + 's';
+      el.innerHTML = '<svg><use href="#i-' + d[0] + '"/></svg>';
+      layer.appendChild(el);
+      items.push({ el: el, z: z, phase: i * 1.7 });
+    });
+
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var header = document.querySelector('header'), bar = document.getElementById('progress');
+    var visual = document.querySelector('.hero .visual');
+    var mx = 0, my = 0, queued = false;
+
+    function frame(){
+      queued = false;
+      var y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
+      header.classList.toggle('scrolled', y > 8);
+      if (still.matches) return;
+      items.forEach(function(it){
+        var px = mx * it.z * 22, py = my * it.z * 22 + Math.sin(y / 520 + it.phase) * 34 * it.z;
+        it.el.style.transform = 'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0) rotate(' + (y / 40 * it.z * (it.phase % 2 ? 1 : -1)).toFixed(1) + 'deg)';
+      });
+    }
+    function queue(){ if (!queued) { queued = true; requestAnimationFrame(frame); } }
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    if (window.matchMedia('(hover: hover)').matches) {
+      window.addEventListener('pointermove', function(e){
+        mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; queue();
+        if (visual && !still.matches) {
+          var r = visual.getBoundingClientRect();
+          var near = e.clientY < r.bottom + 120;
+          var rx = near ? ((e.clientY - r.top) / r.height - 0.5) * -6 : 0, ry = near ? ((e.clientX - r.left) / r.width - 0.5) * 8 : 0;
+          visual.style.transform = 'perspective(1200px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+        }
+      }, { passive: true });
+      // Cards light up under the pointer.
+      document.querySelectorAll('.acard,.fcard,.step,.why .w,.price .main-p').forEach(function(card){
+        card.classList.add('spot');
+        card.addEventListener('pointermove', function(e){
+          var r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+          card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
+      });
+    }
+    frame();
+  })();
+  // Inside a grid, the cards reveal one after another instead of all at once.
+  document.querySelectorAll('.feat,.steps,.why,.aud').forEach(function(grid){
+    grid.classList.remove('reveal');
+    Array.prototype.forEach.call(grid.children, function(child, i){
+      child.classList.add('reveal');
+      child.style.setProperty('--stagger', (i % 6 * 0.07).toFixed(2) + 's');
+      // Once in, hover effects respond straight away.
+      child.addEventListener('transitionend', function(){ child.style.removeProperty('--stagger'); }, { once: true });
+    });
+  });
   // reveal on scroll
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
