@@ -420,7 +420,7 @@
     /* strongest at the sides, faint behind the reading column */
     -webkit-mask-image:linear-gradient(90deg,#000 0,#000 14%,rgba(0,0,0,.28) 34%,rgba(0,0,0,.28) 66%,#000 86%,#000 100%);
     mask-image:linear-gradient(90deg,#000 0,#000 14%,rgba(0,0,0,.28) 34%,rgba(0,0,0,.28) 66%,#000 86%,#000 100%)}
-  @media(max-width:640px){.drift{-webkit-mask-image:none;mask-image:none;opacity:.42}.drift .ic.ic{width:calc(var(--s) * .72);height:calc(var(--s) * .72)}}
+  @media(max-width:640px){.drift{-webkit-mask-image:none;mask-image:none;opacity:.55}.drift .ic.ic{width:calc(var(--s) * .72);height:calc(var(--s) * .72)}}
   .drift .ic{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);color:var(--c);opacity:var(--o);will-change:transform}
   .drift .ic svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;filter:blur(var(--b,0));transform:rotate(var(--r));animation:drift var(--d) ease-in-out var(--dl) infinite}
   @keyframes drift{
@@ -513,6 +513,24 @@
 <symbol id="i-snowflake" viewBox="0 0 24 24"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></symbol>
 <symbol id="i-gift" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"/><rect x="3" y="7" width="18" height="4" rx="1"/></symbol>
 <symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+<symbol id="i-weight" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2 2 0 0 0-1.905 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.925-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
+<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></symbol>
+<symbol id="i-banana" viewBox="0 0 24 24"><path d="M4 13c3.5-2 8-2 10 2a5.5 5.5 0 0 1 8 5"/><path d="M5.15 17.89c5.52-1.52 8.65-6.89 7-12C11.55 4 11.5 2 13 2c3.22 0 5 5.5 5 8 0 6.5-4.2 12-10.49 12C5.11 22 2 22 2 20c0-1.5 1.14-1.55 3.15-2.11Z"/></symbol>
+<symbol id="i-carrot" viewBox="0 0 24 24"><path d="M2.27 21.7s9.87-3.5 12.73-6.36a4.5 4.5 0 0 0-6.36-6.37C5.77 11.84 2.27 21.7 2.27 21.7zM8.64 14l-2.05-2.04M15.34 15l-2.46-2.46"/><path d="M22 9s-1.33-2-3.5-2C16.86 7 15 9 15 9s1.33 2 3.5 2S22 9 22 9z"/><path d="M15 2s-2 1.33-2 3.5S15 9 15 9s2-1.84 2-3.5C17 3.33 15 2 15 2z"/></symbol>
+<symbol id="i-backpack" viewBox="0 0 24 24"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 10h8"/><path d="M8 18h8"/><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></symbol>
+<symbol id="i-scan-line" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></symbol>
+<symbol id="i-sandwich" viewBox="0 0 24 24"><path d="m2.37 11.223 8.372-6.777a2 2 0 0 1 2.516 0l8.371 6.777"/><path d="M21 15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-5.25"/><path d="M3 15a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h9"/><path d="m6.67 15 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2"/><rect width="20" height="4" x="2" y="11" rx="1"/></symbol>
+<symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><path d="M12 17V7"/><path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8"/><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></symbol>
+<symbol id="i-glass-water" viewBox="0 0 24 24"><path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"/><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+<symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+<symbol id="i-egg" viewBox="0 0 24 24"><path d="M12 2C8 2 4 8 4 14a8 8 0 0 0 16 0c0-6-4-12-8-12"/></symbol>
 </svg>
 <div class="drift" id="drift" aria-hidden="true"></div>
 
@@ -1181,27 +1199,37 @@
 
   // ── Motion layer ───────────────────────────────────────────────────
   // Each product's icons in its colour: SubGym blue, SubVendor orange,
-  // SubTrainer purple, SubFit lime. x/y: where on screen (%), s: size (px),
-  // z: depth (near ones are bigger, brighter and move more), wide: hidden on
-  // phones. They drift on their own (CSS) and sway with the pointer and the
+  // SubTrainer purple, SubFit lime. Each has a depth: near ones are bigger,
+  // brighter and move more. They drift on their own (CSS) and sway with the pointer and the
   // scroll; still for reduced motion.
   (function(){
     var C = { gym:'#60a5fa', shop:'#fb923c', coach:'#c084fc', fit:'#b4f04a' };
-    var ICONS = [
-      ['dumbbell','gym',5,9,46,1,0], ['heart-pulse','gym',91,14,34,.6,1], ['timer','gym',62,7,26,.35,1], ['qr-code','fit',33,18,30,.45,1],
-      ['shopping-bag','shop',86,34,44,.9,0], ['biceps-flexed','coach',3,38,40,.8,0], ['package','shop',48,30,24,.3,1], ['apple','coach',72,48,30,.5,1],
-      ['flame','gym',18,56,28,.4,1], ['smartphone','fit',93,60,36,.7,0], ['clipboard-list','coach',40,64,34,.55,1], ['shirt','shop',7,72,38,.75,0],
-      ['trophy','gym',80,78,42,.85,0], ['salad','coach',56,82,26,.35,1], ['truck','shop',26,88,34,.6,1], ['droplet','fit',4,92,28,.5,0],
-      ['medal','coach',90,92,30,.45,0], ['bike','gym',66,24,32,.5,1], ['cup-soda','shop',22,4,28,.4,1], ['zap','fit',50,52,22,.25,1],
-      ['footprints','coach',76,4,30,.55,0], ['calendar-check','gym',35,44,24,.3,1], ['tag','shop',60,66,26,.4,1], ['activity','fit',14,24,26,.35,1]
-    ];
+    var SETS = {
+      gym: ['dumbbell','weight','heart-pulse','timer','flame','trophy','bike','calendar-check','target','mountain','heart'],
+      shop: ['shopping-bag','package','shirt','truck','cup-soda','tag','backpack','store','receipt','glass-water'],
+      coach: ['biceps-flexed','clipboard-list','apple','salad','medal','footprints','banana','carrot','egg','sandwich','badge-check'],
+      fit: ['qr-code','scan-line','smartphone','droplet','zap','activity','star','map-pin','bell','ticket','users']
+    };
+    var ORDER = ['gym','shop','coach','fit'];
+    // Spread evenly: one icon per cell of an 8 × 7 grid, nudged off-centre
+    // by a fixed pseudo-random amount (the same layout on every visit). On
+    // phones half of them show, in a checkerboard.
+    var seed = 7;
+    function rand(){ seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+    var COLS = 8, ROWS = 7, ICONS = [], used = { gym: 0, shop: 0, coach: 0, fit: 0 };
+    for (var row = 0; row < ROWS; row++) for (var col = 0; col < COLS; col++) {
+      var n = row * COLS + col, kind = ORDER[(col + row * 3) % 4], set = SETS[kind];
+      ICONS.push([set[used[kind]++ % set.length], kind,
+        ((col + 0.15 + rand() * 0.7) / COLS * 100).toFixed(1), ((row + 0.1 + rand() * 0.8) / ROWS * 100).toFixed(1),
+        Math.round(22 + rand() * 26), +(0.25 + rand() * 0.75).toFixed(2), (row + col) % 2]);
+    }
     var layer = document.getElementById('drift'), items = [];
     ICONS.forEach(function(d, i){
       var el = document.createElement('span');
       el.className = 'ic' + (d[6] ? ' wide' : '');
       var z = d[5];
-      el.style.cssText = '--x:' + d[2] + '%;--y:' + d[3] + '%;--s:' + d[4] + 'px;--c:' + C[d[1]] +
-        ';--o:' + (0.16 + z * 0.3).toFixed(2) + ';--b:' + (z < 0.4 ? '1px' : '0') + ';--r:' + ((i * 37) % 40 - 20) + 'deg' +
+      el.style.cssText = '--x:' + d[2] + '%;--y:' + d[3] + '%;--s:' + Math.round(d[4] * (0.7 + z * 0.45)) + 'px;--c:' + C[d[1]] +
+        ';--o:' + (0.14 + z * 0.3).toFixed(2) + ';--b:' + (z < 0.4 ? '1px' : '0') + ';--r:' + ((i * 37) % 40 - 20) + 'deg' +
         ';--d:' + (9 + (i * 7) % 8) + 's;--dl:-' + ((i * 13) % 10) + 's';
       el.innerHTML = '<svg><use href="#i-' + d[0] + '"/></svg>';
       layer.appendChild(el);
