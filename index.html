@@ -49,6 +49,17 @@
   .navlinks a:hover{color:var(--ink)}
   .navcta{display:flex;align-items:center;gap:14px}
   .menu-btn{display:none;background:none;border:1px solid var(--line2);border-radius:10px;padding:8px;color:var(--ink)}
+  /* "Sign in": a small menu of the business apps (works without JS: <details>) */
+  .signin{position:relative}
+  .signin summary{list-style:none;cursor:pointer;padding:11px 16px;font-size:14.5px}
+  .signin summary::-webkit-details-marker{display:none}
+  .signin-menu{position:absolute;right:0;top:calc(100% + 10px);width:280px;background:var(--bg2);border:1px solid var(--line2);border-radius:14px;padding:8px;box-shadow:0 24px 50px -20px rgba(0,0,0,.8);z-index:60}
+  .signin-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px}
+  .signin-menu a:hover{background:var(--card)}
+  .signin-menu i{width:10px;height:10px;border-radius:3px;flex:none}
+  .signin-menu b{display:block;font-size:14.5px}
+  .signin-menu small{display:block;color:var(--muted);font-size:12.5px}
+  .signin-menu hr{border:0;border-top:1px solid var(--line);margin:6px 4px}
 
   /* hero */
   .hero{padding:80px 0 88px}
@@ -347,6 +358,9 @@
   .foot .logo{font-size:16px}
   .foot-links{display:flex;gap:22px;flex-wrap:wrap}
   .foot-links a:hover{color:var(--ink)}
+  .foot-apps{width:100%;display:flex;gap:22px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line)}
+  .foot-apps span{color:var(--muted2);font-weight:600}
+  .foot-apps a:hover{color:var(--ink)}
 
   /* reveal — only hidden when JS is present, so no-JS still shows everything */
   .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -368,6 +382,8 @@
     .navlinks.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:18px 24px;gap:16px}
   }
   @media(max-width:640px){
+    .navcta>.btn-primary{display:none}
+    .signin-menu{position:fixed;left:16px;right:16px;top:74px;width:auto}
     .sec{padding:68px 0}
     .feat,.steps,.steps.four,.why,.mlist{grid-template-columns:1fr}
     .hero h1{font-size:36px}
@@ -416,6 +432,16 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="navcta">
+      <details class="signin" id="signin">
+        <summary class="btn btn-ghost">Sign in</summary>
+        <div class="signin-menu">
+          <a href="https://gyms.subgym.online/sign-in"><i style="background:var(--gym)"></i><span><b>SubGym</b><small>Gym owners and front desks</small></span></a>
+          <a href="https://vendors.subgym.online/sign-in"><i style="background:var(--shop)"></i><span><b>SubVendor</b><small>Fitness stores and sellers</small></span></a>
+          <a href="https://trainers.subgym.online/sign-in"><i style="background:var(--coach)"></i><span><b>SubTrainer</b><small>Personal trainers</small></span></a>
+          <hr />
+          <a href="https://app.subgym.online"><i style="background:var(--em)"></i><span><b>SubFit</b><small>Members: find a gym, join, check in</small></span></a>
+        </div>
+      </details>
       <a href="#start" class="btn btn-primary">Book a demo</a>
       <button class="menu-btn" id="menuBtn" aria-label="Menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -553,7 +579,10 @@
       <div class="step"><div class="n">4</div><h4>Members join</h4><p>They find you in SubFit, pay, and get their QR pass.</p></div>
       <div class="step"><div class="n">5</div><h4>Scan &amp; get paid</h4><p>Check them in at the desk; earnings go to your account.</p></div>
     </div>
-    <div class="reveal" style="margin-top:26px"><a href="#start" data-demo="gym" class="btn btn-primary">List your gym</a></div>
+    <div class="reveal" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#start" data-demo="gym" class="btn btn-primary">List your gym</a>
+      <a href="https://gyms.subgym.online/sign-in" class="btn btn-ghost">Gym sign in</a>
+    </div>
   </div>
 </section>
 
@@ -616,7 +645,11 @@
       <div class="step"><div class="n">3</div><h4>Fulfil orders</h4><p>Members order in SubFit; you prepare and deliver or hand over.</p></div>
       <div class="step"><div class="n">4</div><h4>Get paid</h4><p>Your earnings are paid out to your mobile money or bank account.</p></div>
     </div>
-    <div class="reveal" style="margin-top:26px"><a href="#start" data-demo="seller" class="btn btn-primary" style="background:var(--shop);color:#fff">Get early access</a></div>
+    <div class="reveal" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="https://vendors.subgym.online/sign-up" data-signup class="btn btn-primary" style="background:var(--shop);color:#fff" hidden>Create your store <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#start" data-demo="seller" data-before-signup class="btn btn-primary" style="background:var(--shop);color:#fff">Get early access</a>
+      <a href="https://vendors.subgym.online/sign-in" class="btn btn-ghost">Seller sign in</a>
+    </div>
   </div>
 </section>
 
@@ -685,7 +718,11 @@
       <div class="step"><div class="n">3</div><h4>Publish plans &amp; sessions</h4><p>Build a workout or meal plan, add the sessions you offer, and set your prices.</p></div>
       <div class="step"><div class="n">4</div><h4>Get paid</h4><p>Members buy and book in SubFit; your earnings are paid out to your mobile money or bank account.</p></div>
     </div>
-    <div class="reveal" style="margin-top:26px"><a href="#start" data-demo="trainer" class="btn btn-primary" style="background:var(--coach);color:#fff">Get early access</a></div>
+    <div class="reveal" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="https://trainers.subgym.online/sign-up" data-signup class="btn btn-primary" style="background:var(--coach);color:#fff" hidden>Create your trainer profile <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#start" data-demo="trainer" data-before-signup class="btn btn-primary" style="background:var(--coach);color:#fff">Get early access</a>
+      <a href="https://trainers.subgym.online/sign-in" class="btn btn-ghost">Trainer sign in</a>
+    </div>
   </div>
 </section>
 
@@ -920,6 +957,13 @@
       <a href="#start">Book a demo</a>
     </div>
     <div>© <span id="year"></span> SubGym · Ghana</div>
+    <div class="foot-apps">
+      <span>Sign in</span>
+      <a href="https://gyms.subgym.online/sign-in">SubGym</a>
+      <a href="https://vendors.subgym.online/sign-in">SubVendor</a>
+      <a href="https://trainers.subgym.online/sign-in">SubTrainer</a>
+      <a href="https://app.subgym.online">SubFit</a>
+    </div>
   </div>
 </footer>
 
@@ -939,6 +983,23 @@
   (function(){
     var q = document.getElementById('qrBadge'), p = "1110101101001011010110010";
     for (var i = 0; i < 25; i++) { var s = document.createElement('i'); if (p[i] === '1') s.className = 'on'; q.appendChild(s); }
+  })();
+  // ── The apps ───────────────────────────────────────────────────────
+  // Each business app signs in at /sign-in and makes a new account at
+  // /sign-up (SubVendor and SubTrainer; SubGym adds gyms itself). Until
+  // launch nobody can make an account, so the "Get early access" buttons
+  // show; set SIGNUPS_OPEN to true at launch to show "Create your store" and
+  // "Create your trainer profile" instead.
+  var SIGNUPS_OPEN = false;
+  if (SIGNUPS_OPEN) {
+    document.querySelectorAll('[data-signup]').forEach(function(el){ el.hidden = false; });
+    document.querySelectorAll('[data-before-signup]').forEach(function(el){ el.hidden = true; });
+  }
+  // The sign-in menu closes on a click elsewhere or Escape.
+  (function(){
+    var menu = document.getElementById('signin');
+    document.addEventListener('click', function(e){ if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
   })();
   // ── Demo request form → Google Form ────────────────────────────────
   // The "SubGym — Demo request" Google Form: its "formResponse" URL and each
