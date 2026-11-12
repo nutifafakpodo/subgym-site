@@ -1053,9 +1053,9 @@
           </div>
 
           <div class="fallback" id="demoFallback">
-            <a href="mailto:hello@subgym.app?subject=List%20my%20gym%20on%20SubGym" class="btn btn-primary" style="font-size:16px;padding:14px 26px">List your gym</a>
-            <a href="mailto:hello@subgym.app?subject=Sell%20on%20SubGym" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Become a seller</a>
-            <a href="mailto:hello@subgym.app?subject=Sell%20plans%20on%20SubTrainer" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Sell training plans</a>
+            <a href="mailto:hello@subgym.online?subject=List%20my%20gym%20on%20SubGym" class="btn btn-primary" style="font-size:16px;padding:14px 26px">List your gym</a>
+            <a href="mailto:hello@subgym.online?subject=Sell%20on%20SubGym" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Become a seller</a>
+            <a href="mailto:hello@subgym.online?subject=Sell%20plans%20on%20SubTrainer" class="btn btn-ghost" style="font-size:16px;padding:14px 26px">Sell training plans</a>
           </div>
         </div>
       </div>
@@ -1124,11 +1124,16 @@
     document.addEventListener('click', function(e){ if (menu.open && !menu.contains(e.target)) menu.open = false; });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
   })();
-  // ── Demo request form → Google Form ────────────────────────────────
-  // The "SubGym — Demo request" Google Form: its "formResponse" URL and each
-  // question's entry id. With `action` empty, the form hides and the email
-  // buttons show instead.
+  // ── Demo request form → SubSales, with the Google Form as a backup ──
+  // Each request goes to SubGym's API (POST /leads), where it lands in
+  // SubSales' unassigned pool for the sales team, and to the "SubGym — Demo
+  // request" Google Form (its "formResponse" URL and each question's entry id),
+  // so nothing is lost if one of them is down. With `action` empty, the form
+  // hides and the email buttons show instead.
   var DEMO_FORM = {
+    leads: 'https://api.subgym.online/api/v1/leads',
+    // The form's "I run a" answer as SubSales' lead kind.
+    kinds: { gym: 'gym', seller: 'vendor', trainer: 'trainer' },
     action: 'https://docs.google.com/forms/d/e/1FAIpQLSek5aTjPsb8Zan4zgDeWEZLMjX24VcpxM9p9c2Jdp2nVqhu6A/formResponse',
     fields: {
       type: 'entry.1538648575',
@@ -1184,16 +1189,53 @@
       var button = form.querySelector('button');
       button.disabled = true;
       button.textContent = 'Sending…';
+      var field = function(key){ return (form[key].value || '').trim(); };
+      var lead = {
+        kind: DEMO_FORM.kinds[form.querySelector('input[name="type"]:checked').value],
+        businessName: field('business'),
+        contactName: field('name'),
+        phone: field('phone'),
+        email: field('email') || undefined,
+        city: field('city') || undefined,
+        message: field('message') || undefined
+      };
+      var toSubSales = fetch(DEMO_FORM.leads, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      }).then(function(res){
+        if (res.ok) return true;
+        // A number the API can't read: say so, as the Google Form wouldn't.
+        if (res.status === 400) return res.json().then(function(body){ throw { field: true, message: body && body.error }; });
+        throw new Error('SubSales answered ' + res.status);
+      });
       // Google Forms doesn't send CORS headers, so the response is opaque;
       // a resolved request means it reached Google.
-      fetch(DEMO_FORM.action, { method: 'POST', mode: 'no-cors', body: data })
-        .then(function(){ form.hidden = true; thanks.hidden = false; })
-        .catch(function(){
+      var toGoogle = fetch(DEMO_FORM.action, { method: 'POST', mode: 'no-cors', body: data }).then(function(){ return true; });
+      // Thanks once either has it; an error only when both failed (or the
+      // details were refused).
+      var settled = 0, done = false;
+      var fail = function(err){
+        if (done) return;
+        if (err && err.field) {
+          done = true;
+          button.disabled = false;
+          button.textContent = 'Request a demo';
+          error.textContent = err.message || 'Please check your details and try again.';
+          error.hidden = false;
+          return;
+        }
+        if (++settled === 2) {
+          done = true;
           button.disabled = false;
           button.textContent = 'Request a demo';
           error.textContent = 'We couldn’t send that — check your connection and try again.';
           error.hidden = false;
-        });
+        }
+      };
+      var ok = function(){ if (!done) { done = true; form.hidden = true; thanks.hidden = false; } };
+      toSubSales.then(ok, fail);
+      toGoogle.then(ok, fail);
     });
   })();
 
