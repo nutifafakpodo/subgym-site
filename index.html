@@ -1,14 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GH">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SubGym — for gyms, fitness sellers and trainers in Ghana</title>
-<meta name="description" content="SubGym helps Ghanaian gyms sell memberships and day passes, check members in with a QR code, and get paid — and puts gyms, fitness sellers and personal trainers in front of members on the SubFit app." />
+<title>SubGym — Gym management software in Ghana | QR check-in &amp; mobile money</title>
+<meta name="description" content="Gym management software for Ghana: sell memberships and day passes, check members in with a QR code, take mobile money and card payments, and get found by members on the SubFit app. Book a free demo." />
+<link rel="canonical" href="https://subgym.online/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0a0c0a" />
-<meta property="og:title" content="SubGym — for gyms, fitness sellers and trainers in Ghana" />
-<meta property="og:description" content="Sell memberships, products and training plans, and reach members on SubFit. For gyms, fitness sellers and personal trainers in Ghana." />
+<meta property="og:title" content="SubGym — Fill your gym. Run it from one screen." />
+<meta property="og:description" content="Memberships, day passes, QR check-in and mobile money payments for gyms in Ghana, plus a page on the SubFit app where members find and join you." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://subgym.online/" />
+<meta property="og:site_name" content="SubGym" />
+<meta property="og:locale" content="en_GH" />
+<meta property="og:image" content="https://subgym.online/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="SubGym: Fill your gym. Run it from one screen." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SubGym — Fill your gym. Run it from one screen." />
+<meta name="twitter:description" content="Memberships, day passes, QR check-in and mobile money payments for gyms in Ghana." />
+<meta name="twitter:image" content="https://subgym.online/og.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://subgym.online/#org",
+      "name": "SubGym",
+      "url": "https://subgym.online/",
+      "logo": "https://subgym.online/og.png",
+      "email": "hello@subgym.online",
+      "areaServed": { "@type": "Country", "name": "Ghana" },
+      "contactPoint": [
+        { "@type": "ContactPoint", "contactType": "sales", "email": "sales@subgym.online", "areaServed": "GH", "availableLanguage": "English" },
+        { "@type": "ContactPoint", "contactType": "customer support", "email": "support@subgym.online", "areaServed": "GH", "availableLanguage": "English" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://subgym.online/#site",
+      "url": "https://subgym.online/",
+      "name": "SubGym",
+      "publisher": { "@id": "https://subgym.online/#org" },
+      "inLanguage": "en-GH"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SubGym",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Gym management software",
+      "operatingSystem": "Web browser",
+      "url": "https://subgym.online/",
+      "description": "Gym management software for Ghana: memberships and day passes, QR check-in at the front desk, mobile money and card payments, payouts, and a gym page on the SubFit member app.",
+      "areaServed": { "@type": "Country", "name": "Ghana" },
+      "publisher": { "@id": "https://subgym.online/#org" }
+    }
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4f04a'/%3E%3Cpath d='M9 12h3v8H9zm11 0h3v8h-3zM12 15h8v2h-8z' fill='%230a0c0a'/%3E%3C/svg%3E" />
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -88,7 +140,7 @@
   .side span{display:block;font-size:10px;color:#8390a5;padding:6px 8px;border-radius:7px;margin-bottom:2px}
   .side span.on{background:rgba(59,130,246,.16);color:#bfdbfe}
   .main{padding:18px;background:#0b0f15}
-  .main h4{font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .main .mh{font-size:15px;font-weight:800;letter-spacing:-.02em}
   .main .sub{font-size:10px;color:#8390a5;margin-bottom:12px}
   .scan{display:flex;gap:8px;margin-bottom:12px}
   .scan div{flex:1;height:34px;border-radius:9px;border:1.5px solid var(--gym);background:#0f141d;font-size:10.5px;color:#64748b;display:flex;align-items:center;padding:0 11px;font-family:ui-monospace,Menlo,monospace}
@@ -159,7 +211,7 @@
   .vside span{display:block;font-size:10px;color:#a8a29e;padding:6px 8px;border-radius:7px;margin-bottom:2px}
   .vside span.on{background:rgba(249,115,22,.16);color:#fed7aa}
   .vmain{padding:16px;background:#100d0b}
-  .vmain h4{font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .vmain .mh{font-size:15px;font-weight:800;letter-spacing:-.02em}
   .vmain .sub{font-size:10px;color:#a8a29e;margin-bottom:10px}
   .vtabs{display:inline-flex;background:#1c1714;border-radius:9px;padding:3px;gap:2px;margin-bottom:10px}
   .vtabs span{font-size:9.5px;font-weight:600;color:#a8a29e;padding:4px 9px;border-radius:7px}
@@ -199,7 +251,7 @@
   .tside span{display:block;font-size:10px;color:#a99fbb;padding:6px 8px;border-radius:7px;margin-bottom:2px}
   .tside span.on{background:rgba(168,85,247,.18);color:#e9d5ff}
   .tmain{padding:16px;background:#0f0c13}
-  .tmain h4{font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .tmain .mh{font-size:15px;font-weight:800;letter-spacing:-.02em}
   .tmain .sub{font-size:10px;color:#a99fbb;margin-bottom:12px}
   .tplan{border:1px solid rgba(196,181,253,.12);border-radius:12px;background:#141019;padding:11px 12px;margin-bottom:8px}
   .tplan .tp-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -257,7 +309,7 @@
   .shopsec .fi{background:rgba(249,115,22,.14);color:var(--shop2)}
   .coachsec .fi{background:rgba(168,85,247,.14);color:var(--coach2)}
   .trustsec .fi{background:rgba(180,240,74,.12);color:var(--em2)}
-  .fcard h4{font-size:16.5px;margin-bottom:6px}
+  .fcard h3{font-size:16.5px;margin-bottom:6px}
   .fcard p{font-size:14px;color:var(--muted)}
   .also{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
   .also span{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted2)}
@@ -270,7 +322,7 @@
   .gymsec .step .n{background:var(--gym);color:#fff}
   .shopsec .step .n{background:var(--shop);color:#fff}
   .coachsec .step .n{background:var(--coach);color:#fff}
-  .step h4{font-size:15.5px;margin-bottom:5px}
+  .step h3{font-size:15.5px;margin-bottom:5px}
   .step p{font-size:13.5px;color:var(--muted)}
   .subhead{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:52px 0 18px}
 
@@ -287,7 +339,7 @@
   .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .why .w{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
   .why .w .n{color:var(--em2);font-weight:800;font-size:14px;margin-bottom:12px}
-  .why .w h4{font-size:16px;margin-bottom:7px}
+  .why .w h3{font-size:16px;margin-bottom:7px}
   .why .w p{font-size:13.5px;color:var(--muted)}
 
   /* pricing */
@@ -299,7 +351,7 @@
   .price li{display:flex;gap:10px;color:var(--muted2);font-size:15px}
   .price li svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--em)}
   .price .side-p{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
-  .price .side-p h4{font-size:18px}
+  .price .side-p h3{font-size:18px}
   .price .side-p p{color:var(--muted);font-size:14.5px;margin-top:8px}
 
   /* faq */
@@ -575,17 +627,17 @@
   <div class="glow"></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="pill">For gyms, fitness sellers and trainers in Ghana</span>
+      <span class="pill">Gym management software for Ghana</span>
       <h1>Fill your gym. <span class="accent">Run it from one screen.</span></h1>
-      <p class="lead">SubGym gives your gym everything to sell memberships and day passes, check members in with a QR code, and get paid — and puts you in front of members on the SubFit app. Soon, fitness sellers and personal trainers will reach those same members through SubFit too.</p>
+      <p class="lead">Sell memberships and day passes, check members in with a QR code, and get paid by mobile money or card — all from a browser at your front desk. Your gym also gets a page on SubFit, the app people in Ghana use to find a gym near them and join on the spot.</p>
       <div class="hero-cta">
-        <a href="#start" data-demo="gym" class="btn btn-primary">List your gym <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#sellers" class="btn btn-ghost">I sell fitness products</a>
+        <a href="#start" data-demo="gym" class="btn btn-primary">Book a free demo <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#gyms" class="btn btn-ghost">See how it works</a>
       </div>
       <div class="ticks">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>No turnstiles needed</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Card &amp; mobile money</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Front-desk staff accounts</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Free 3-month pilot</span>
       </div>
     </div>
 
@@ -598,7 +650,7 @@
             <span>Overview</span><span class="on">Front desk</span><span>Members</span><span>Classes</span><span>Plans &amp; pricing</span><span>Reports</span>
           </div>
           <div class="main">
-            <h4>Front desk</h4>
+            <div class="mh">Front desk</div>
             <div class="sub">Scan a member’s SubFit pass</div>
             <div class="scan"><div>pass_7Qm2…Xk</div><b>Check in</b></div>
             <div class="admit">
@@ -683,25 +735,25 @@
       <p>SubGym runs in the browser on any laptop or tablet. Your front desk, your members, your plans and your numbers, in one place.</p>
     </div>
     <div class="feat reveal">
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg></div><h4>QR front desk</h4><p>Members show their SubFit pass; your staff scan it, or type the six-character code. A clear “admitted” with their photo — or the reason why not: expired, not started yet, or for another gym.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4" stroke-linecap="round"/></svg></div><h4>Plans &amp; pricing</h4><p>Walk-in day passes, monthly to annual plans, group memberships, and family memberships soon — each with your price and what’s included. Members can renew automatically by card, with a text 3 days before.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h4>Members at a glance</h4><p>Search the roster, see who ends this week, freeze a membership, and add or remove days with the reason on record. A frozen member’s next scan at the door unfreezes them and adds the paused days back.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h4>Get found on SubFit</h4><p>Your gym page shows photos, plans, classes and member reviews to people nearby — who can join and pay on the spot.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Renewal reminders<span class="soon">Coming soon</span></h4><p>With one tap, text every member whose membership is due — in the week before it ends, on the day and just after — so fewer of them lapse.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4" stroke-linecap="round"/></svg></div><h4>Classes &amp; bookings<span class="soon">Coming soon</span></h4><p>Schedule runs, yoga, HIIT or spin, free or paid. Members book a spot in SubFit; you see who’s coming. Cancel a class and every paid place is refunded for you.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4" stroke-linecap="round"/></svg></div><h4>Take payments at the desk</h4><p>Sell a walk-in a day pass or a membership on the spot: send a mobile money prompt to their phone, or text a payment link. Once it’s paid, check them in straight away.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7ZM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z" stroke-linejoin="round"/></svg></div><h4>Referral rewards<span class="soon">Coming soon</span></h4><p>Members invite friends with their own code. You choose the reward: a free day pass for the member, or 5–50% off for both. It unlocks only once the friend has paid and checked in.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18" stroke-linecap="round"/><path d="m7 15 4-4 3 3 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Earnings you can check</h4><p>Every sale shows what the member paid, SubGym’s commission, the fee and your share — and when it’s ready to be paid out to your account.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg></div><h3>QR front desk</h3><p>Members show their SubFit pass; your staff scan it, or type the six-character code. A clear “admitted” with their photo — or the reason why not: expired, not started yet, or for another gym.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4" stroke-linecap="round"/></svg></div><h3>Plans &amp; pricing</h3><p>Walk-in day passes, monthly to annual plans, group memberships, and family memberships soon — each with your price and what’s included. Members can renew automatically by card, with a text 3 days before.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h3>Members at a glance</h3><p>Search the roster, see who ends this week, freeze a membership, and add or remove days with the reason on record. A frozen member’s next scan at the door unfreezes them and adds the paused days back.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Get found on SubFit</h3><p>Your gym page shows photos, plans, classes and member reviews to people nearby — who can join and pay on the spot.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Renewal reminders<span class="soon">Coming soon</span></h3><p>With one tap, text every member whose membership is due — in the week before it ends, on the day and just after — so fewer of them lapse.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4" stroke-linecap="round"/></svg></div><h3>Classes &amp; bookings<span class="soon">Coming soon</span></h3><p>Schedule runs, yoga, HIIT or spin, free or paid. Members book a spot in SubFit; you see who’s coming. Cancel a class and every paid place is refunded for you.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4" stroke-linecap="round"/></svg></div><h3>Take payments at the desk</h3><p>Sell a walk-in a day pass or a membership on the spot: send a mobile money prompt to their phone, or text a payment link. Once it’s paid, check them in straight away.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7ZM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z" stroke-linejoin="round"/></svg></div><h3>Referral rewards<span class="soon">Coming soon</span></h3><p>Members invite friends with their own code. You choose the reward: a free day pass for the member, or 5–50% off for both. It unlocks only once the friend has paid and checked in.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18" stroke-linecap="round"/><path d="m7 15 4-4 3 3 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Earnings you can check</h3><p>Every sale shows what the member paid, SubGym’s commission, the fee and your share — and when it’s ready to be paid out to your account.</p></div>
     </div>
     <div class="also reveal">Also included: <span>Front-desk accounts that can’t see revenue</span><span>Family plans (coming soon)</span><span>Free birthday day passes for members</span><span>Revenue &amp; attendance reports (coming soon)</span><span>CSV export (coming soon)</span><span>Installs like an app on laptop or phone</span></div>
 
     <div class="subhead reveal">How your gym gets started</div>
     <div class="steps reveal">
-      <div class="step"><div class="n">1</div><h4>Talk to us</h4><p>Book a demo. We set up your gym and your owner account for you.</p></div>
-      <div class="step"><div class="n">2</div><h4>Get verified</h4><p>Send your business documents. Once we’ve checked them, your gym goes live in SubFit.</p></div>
-      <div class="step"><div class="n">3</div><h4>Set your plans</h4><p>Add prices, photos and what each plan includes.</p></div>
-      <div class="step"><div class="n">4</div><h4>Members join</h4><p>They find you in SubFit, pay, and get their QR pass.</p></div>
-      <div class="step"><div class="n">5</div><h4>Scan &amp; get paid</h4><p>Check them in at the desk; earnings go to your account.</p></div>
+      <div class="step"><div class="n">1</div><h3>Talk to us</h3><p>Book a demo. We set up your gym and your owner account for you.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get verified</h3><p>Send your business documents. Once we’ve checked them, your gym goes live in SubFit.</p></div>
+      <div class="step"><div class="n">3</div><h3>Set your plans</h3><p>Add prices, photos and what each plan includes.</p></div>
+      <div class="step"><div class="n">4</div><h3>Members join</h3><p>They find you in SubFit, pay, and get their QR pass.</p></div>
+      <div class="step"><div class="n">5</div><h3>Scan &amp; get paid</h3><p>Check them in at the desk; earnings go to your account.</p></div>
     </div>
     <div class="reveal" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
       <a href="#start" data-demo="gym" class="btn btn-primary">List your gym</a>
@@ -728,7 +780,7 @@
               <span>Dashboard</span><span class="on">Orders</span><span>Products</span><span>Reviews</span>
             </div>
             <div class="vmain">
-              <h4>Orders</h4>
+              <div class="mh">Orders</div>
               <div class="sub">Orders from SubFit members</div>
               <div class="vtabs"><span class="on">New<b>2</b></span><span>Preparing<b>1</b></span><span>Fulfilled<b>18</b></span></div>
               <div class="order">
@@ -754,20 +806,20 @@
       </div>
     </div>
     <div class="feat reveal">
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 7h16l-1 13H5L4 7ZM9 7a3 3 0 0 1 6 0"/></svg></div><h4>Your store in SubFit</h4><p>Products appear in the SubFit store with your photos, price and reviews, next to the gyms your customers use.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V7l-8-4-8 4v10l8 4 3-1.5M4 7l8 4 8-4M12 11v10" stroke-linejoin="round"/></svg></div><h4>Options &amp; stock</h4><p>Flavours, sizes and colours, each with its own stock. Low-stock warnings before you run out; sold-out options can’t be ordered.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13v10H3zM16 10h4l1 3v4h-5" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg></div><h4>One order queue</h4><p>See who ordered what, delivery or pickup, and move each order from New to Preparing to Fulfilled so the member can track it.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4" stroke-linecap="round"/></svg></div><h4>Paid before you pack</h4><p>Every order is paid upfront by card or mobile money; the delivery fee is paid to you on arrival. A bag with items from several sellers becomes a separate order for each, so you only see — and deliver — your own.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke-linejoin="round"/></svg></div><h4>Reviews that sell</h4><p>Members rate your products and your store. Good ratings show on every product page.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h3" stroke-linecap="round"/></svg></div><h4>Clear earnings</h4><p>Sales, earnings by category and payouts in one dashboard — every stock change and sale on record. Can’t fulfil an order? Tell us, and SubGym sorts it out with the member.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 7h16l-1 13H5L4 7ZM9 7a3 3 0 0 1 6 0"/></svg></div><h3>Your store in SubFit</h3><p>Products appear in the SubFit store with your photos, price and reviews, next to the gyms your customers use.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V7l-8-4-8 4v10l8 4 3-1.5M4 7l8 4 8-4M12 11v10" stroke-linejoin="round"/></svg></div><h3>Options &amp; stock</h3><p>Flavours, sizes and colours, each with its own stock. Low-stock warnings before you run out; sold-out options can’t be ordered.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13v10H3zM16 10h4l1 3v4h-5" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg></div><h3>One order queue</h3><p>See who ordered what, delivery or pickup, and move each order from New to Preparing to Fulfilled so the member can track it.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4" stroke-linecap="round"/></svg></div><h3>Paid before you pack</h3><p>Every order is paid upfront by card or mobile money; the delivery fee is paid to you on arrival. A bag with items from several sellers becomes a separate order for each, so you only see — and deliver — your own.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke-linejoin="round"/></svg></div><h3>Reviews that sell</h3><p>Members rate your products and your store. Good ratings show on every product page.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h3" stroke-linecap="round"/></svg></div><h3>Clear earnings</h3><p>Sales, earnings by category and payouts in one dashboard — every stock change and sale on record. Can’t fulfil an order? Tell us, and SubGym sorts it out with the member.</p></div>
     </div>
 
     <div class="subhead reveal">How selling works</div>
     <div class="steps four reveal">
-      <div class="step"><div class="n">1</div><h4>Apply</h4><p>Set up your store and tell us what you sell.</p></div>
-      <div class="step"><div class="n">2</div><h4>List products</h4><p>Add photos, options and stock, then publish.</p></div>
-      <div class="step"><div class="n">3</div><h4>Fulfil orders</h4><p>Members order in SubFit; you prepare and deliver or hand over.</p></div>
-      <div class="step"><div class="n">4</div><h4>Get paid</h4><p>Your earnings are paid out to your mobile money or bank account.</p></div>
+      <div class="step"><div class="n">1</div><h3>Apply</h3><p>Set up your store and tell us what you sell.</p></div>
+      <div class="step"><div class="n">2</div><h3>List products</h3><p>Add photos, options and stock, then publish.</p></div>
+      <div class="step"><div class="n">3</div><h3>Fulfil orders</h3><p>Members order in SubFit; you prepare and deliver or hand over.</p></div>
+      <div class="step"><div class="n">4</div><h3>Get paid</h3><p>Your earnings are paid out to your mobile money or bank account.</p></div>
     </div>
     <div class="reveal" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
       <a href="https://vendors.subgym.online/sign-up" data-signup class="btn btn-primary" style="background:var(--shop);color:#fff" hidden>Create your store <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -795,7 +847,7 @@
               <span>Dashboard</span><span class="on">Plans</span><span>Subscribers</span><span>Groups</span><span>Reviews</span><span>Earnings</span>
             </div>
             <div class="tmain">
-              <h4>Plans</h4>
+              <div class="mh">Plans</div>
               <div class="sub">Sell them in SubFit, or send them to your subscribers</div>
               <div class="tplan">
                 <div class="tp-top"><b>Four Week Strength Base</b><span class="tp-tag live">Published</span></div>
@@ -823,24 +875,24 @@
       </div>
     </div>
     <div class="feat reveal">
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg></div><h4>Plans built properly</h4><p>Workout days with exercises, sets, reps, rest and form tips — or meals with calories and macros. Members see what’s inside before they buy, never the plan itself.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12 12 20l-8-8V4h8l8 8Z" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></div><h4>Monthly, or to keep</h4><p>Sell monthly access, where members get every update, or a version to keep — or both. You set the prices; members pay upfront by card or mobile money.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Checked by SubGym</h4><p>We check your certificates before your plans go live, so members know they come from a real trainer.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke-linejoin="round"/></svg></div><h4>Reviews that sell</h4><p>Members rate your plans and you. Ratings and written reviews show on every plan before anyone pays.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-4-3-6.5-4-10-2.5 2-3 4-3 6-1.5-1-2-2.5-2-4C7 9 5 11.5 5 15a7 7 0 0 0 7 7Z" stroke-linejoin="round"/></svg></div><h4>Members who finish</h4><p>Members start your plan on the days they choose and get a reminder each morning. Points, badges and streaks — and friends who buy your plan too — keep them going.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h4>Coach your subscribers</h4><p>Put subscribers in groups and send them plans, even private ones that aren’t for sale. Every edit reaches monthly members; buyers keep their version.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="m15.5 10 6-3v10l-6-3" stroke-linejoin="round"/></svg></div><h4>One-to-one sessions</h4><p>Offer sessions in person or by video call, at your price and length. Set your weekly hours; members book and pay in SubFit, and a cancellation before the start is refunded in full.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 5.5 3.5-5.5 3.5Z" stroke-linejoin="round"/></svg></div><h4>Show the form</h4><p>Add a video link to any exercise — YouTube, TikTok, Instagram or X — so members can see how it’s done, right from the workout.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18" stroke-linecap="round"/><path d="m7 15 4-4 3 3 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>A dashboard that guides you</h4><p>A getting-started checklist, then your subscribers, sales this month, next sessions, and what’s ready to be paid out.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg></div><h3>Plans built properly</h3><p>Workout days with exercises, sets, reps, rest and form tips — or meals with calories and macros. Members see what’s inside before they buy, never the plan itself.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12 12 20l-8-8V4h8l8 8Z" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></div><h3>Monthly, or to keep</h3><p>Sell monthly access, where members get every update, or a version to keep — or both. You set the prices; members pay upfront by card or mobile money.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Checked by SubGym</h3><p>We check your certificates before your plans go live, so members know they come from a real trainer.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke-linejoin="round"/></svg></div><h3>Reviews that sell</h3><p>Members rate your plans and you. Ratings and written reviews show on every plan before anyone pays.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-4-3-6.5-4-10-2.5 2-3 4-3 6-1.5-1-2-2.5-2-4C7 9 5 11.5 5 15a7 7 0 0 0 7 7Z" stroke-linejoin="round"/></svg></div><h3>Members who finish</h3><p>Members start your plan on the days they choose and get a reminder each morning. Points, badges and streaks — and friends who buy your plan too — keep them going.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h3>Coach your subscribers</h3><p>Put subscribers in groups and send them plans, even private ones that aren’t for sale. Every edit reaches monthly members; buyers keep their version.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="m15.5 10 6-3v10l-6-3" stroke-linejoin="round"/></svg></div><h3>One-to-one sessions</h3><p>Offer sessions in person or by video call, at your price and length. Set your weekly hours; members book and pay in SubFit, and a cancellation before the start is refunded in full.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 5.5 3.5-5.5 3.5Z" stroke-linejoin="round"/></svg></div><h3>Show the form</h3><p>Add a video link to any exercise — YouTube, TikTok, Instagram or X — so members can see how it’s done, right from the workout.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18" stroke-linecap="round"/><path d="m7 15 4-4 3 3 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>A dashboard that guides you</h3><p>A getting-started checklist, then your subscribers, sales this month, next sessions, and what’s ready to be paid out.</p></div>
     </div>
     <div class="also reveal">Also included: <span>Subscriber list</span><span>Plan versions &amp; updates</span><span>Earnings &amp; SubGym’s commission on every sale</span><span>Payouts to mobile money or bank</span><span>Mobile app for trainers</span></div>
 
     <div class="subhead reveal">How selling plans works</div>
     <div class="steps four reveal">
-      <div class="step"><div class="n">1</div><h4>Set up your profile</h4><p>Your name, specialties, bio and certificates.</p></div>
-      <div class="step"><div class="n">2</div><h4>Get checked</h4><p>We review your certificates, then you go live in SubFit.</p></div>
-      <div class="step"><div class="n">3</div><h4>Publish plans &amp; sessions</h4><p>Build a workout or meal plan, add the sessions you offer, and set your prices.</p></div>
-      <div class="step"><div class="n">4</div><h4>Get paid</h4><p>Members buy and book in SubFit; your earnings are paid out to your mobile money or bank account.</p></div>
+      <div class="step"><div class="n">1</div><h3>Set up your profile</h3><p>Your name, specialties, bio and certificates.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get checked</h3><p>We review your certificates, then you go live in SubFit.</p></div>
+      <div class="step"><div class="n">3</div><h3>Publish plans &amp; sessions</h3><p>Build a workout or meal plan, add the sessions you offer, and set your prices.</p></div>
+      <div class="step"><div class="n">4</div><h3>Get paid</h3><p>Members buy and book in SubFit; your earnings are paid out to your mobile money or bank account.</p></div>
     </div>
     <div class="reveal" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
       <a href="https://trainers.subgym.online/sign-up" data-signup class="btn btn-primary" style="background:var(--coach);color:#fff" hidden>Create your trainer profile <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -914,14 +966,14 @@
       <p>Not a foreign gym app with a new logo — every choice fits how gyms here run.</p>
     </div>
     <div class="why reveal">
-      <div class="w"><div class="n">01</div><h4>QR over turnstiles</h4><p>No expensive access hardware. A barcode scanner at the front desk is enough.</p></div>
-      <div class="w"><div class="n">02</div><h4>Walk-ins welcome</h4><p>Day passes are first-class, so pay-as-you-go visitors become customers too.</p></div>
-      <div class="w"><div class="n">03</div><h4>Freezes built in</h4><p>Members travel. Pausing a membership is a simple, recorded step — not a favour.</p></div>
-      <div class="w"><div class="n">04</div><h4>Mobile money &amp; cards</h4><p>Members pay the way they already do — in the app, or at the desk with a mobile money prompt.</p></div>
-      <div class="w"><div class="n">05</div><h4>Family plans<span class="soon">Coming soon</span></h4><p>One person pays and adds their family, each with their own pass to the door.</p></div>
-      <div class="w"><div class="n">06</div><h4>Word of mouth, rewarded<span class="soon">Coming soon</span></h4><p>Members bring friends with a referral code, and both can be rewarded — on your terms.</p></div>
-      <div class="w"><div class="n">07</div><h4>Sign in with your number</h4><p>A phone number and a code by text. No passwords to forget.</p></div>
-      <div class="w"><div class="n">08</div><h4>Works on any device</h4><p>SubGym, SubVendor and SubTrainer run in the browser and install like an app on any laptop or phone.</p></div>
+      <div class="w"><div class="n">01</div><h3>QR over turnstiles</h3><p>No expensive access hardware. A barcode scanner at the front desk is enough.</p></div>
+      <div class="w"><div class="n">02</div><h3>Walk-ins welcome</h3><p>Day passes are first-class, so pay-as-you-go visitors become customers too.</p></div>
+      <div class="w"><div class="n">03</div><h3>Freezes built in</h3><p>Members travel. Pausing a membership is a simple, recorded step — not a favour.</p></div>
+      <div class="w"><div class="n">04</div><h3>Mobile money &amp; cards</h3><p>Members pay the way they already do — in the app, or at the desk with a mobile money prompt.</p></div>
+      <div class="w"><div class="n">05</div><h3>Family plans<span class="soon">Coming soon</span></h3><p>One person pays and adds their family, each with their own pass to the door.</p></div>
+      <div class="w"><div class="n">06</div><h3>Word of mouth, rewarded<span class="soon">Coming soon</span></h3><p>Members bring friends with a referral code, and both can be rewarded — on your terms.</p></div>
+      <div class="w"><div class="n">07</div><h3>Sign in with your number</h3><p>A phone number and a code by text. No passwords to forget.</p></div>
+      <div class="w"><div class="n">08</div><h3>Works on any device</h3><p>SubGym, SubVendor and SubTrainer run in the browser and install like an app on any laptop or phone.</p></div>
     </div>
   </div>
 </section>
@@ -935,12 +987,12 @@
       <p>Members pay before they train, shop or book — so the platform has to be one they can trust, and one you can count on to pay you.</p>
     </div>
     <div class="feat reveal">
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Everyone is checked</h4><p>No gym, seller or trainer sells until a person at SubGym has checked them. If an approved partner changes their name, we check that too.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4" stroke-linecap="round"/></svg></div><h4>Payments through Paystack</h4><p>Card and mobile money payments go through Paystack. SubGym never handles cash, and there’s no wallet to top up.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg></div><h4>A rate that stays put</h4><p>Each sale keeps the commission rate it was sold at, and you can see it next to every sale. Every rate change is logged.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg></div><h4>Your payout account, protected</h4><p>Account numbers are encrypted, and a new or changed payout account waits 72 hours before money goes to it — so nobody can quietly redirect your earnings.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h4>The right access for each person</h4><p>Front-desk staff check members in and take payments; revenue, plans and payouts stay with the owner. A member’s sign-in can’t open a business app.</p></div>
-      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Refunds handled</h4><p>A cancelled class, a session cancelled before it starts, or an order a seller can’t fulfil — SubGym sorts out the member’s money back, so you don’t have to.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Everyone is checked</h3><p>No gym, seller or trainer sells until a person at SubGym has checked them. If an approved partner changes their name, we check that too.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4" stroke-linecap="round"/></svg></div><h3>Payments through Paystack</h3><p>Card and mobile money payments go through Paystack. SubGym never handles cash, and there’s no wallet to top up.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg></div><h3>A rate that stays put</h3><p>Each sale keeps the commission rate it was sold at, and you can see it next to every sale. Every rate change is logged.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg></div><h3>Your payout account, protected</h3><p>Account numbers are encrypted, and a new or changed payout account waits 72 hours before money goes to it — so nobody can quietly redirect your earnings.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 20a6.5 6.5 0 0 0-3-5.5" stroke-linecap="round"/></svg></div><h3>The right access for each person</h3><p>Front-desk staff check members in and take payments; revenue, plans and payouts stay with the owner. A member’s sign-in can’t open a business app.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Refunds handled</h3><p>A cancelled class, a session cancelled before it starts, or an order a seller can’t fulfil — SubGym sorts out the member’s money back, so you don’t have to.</p></div>
     </div>
   </div>
 </section>
@@ -950,28 +1002,28 @@
   <div class="wrap">
     <div class="sechead center reveal">
       <span class="eyebrow">Pricing</span>
-      <h2>You earn first</h2>
-      <p>No hardware to buy. SubGym takes a small commission on what you sell through the platform.</p>
+      <h2>Simple pricing that grows with you</h2>
+      <p>No hardware to buy and nothing to install. Gyms start with a free pilot; sellers and trainers pay only when they sell.</p>
     </div>
     <div class="price reveal">
       <div class="main-p">
-        <span class="pill">Commission-based</span>
-        <h3>Pay when you get paid</h3>
-        <p>Your rate is agreed before you go live — no setup hardware, no surprises.</p>
+        <span class="pill">Free 3-month pilot for gyms</span>
+        <h3>Pay for what you use</h3>
+        <p>Your price is agreed before you go live, in writing. No setup fee, no hardware, no surprises.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gyms: a share of each membership and day pass sold through SubFit</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sellers: a share of each order, by product category</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Trainers: a share of each plan sold, monthly or to keep, and of each one-to-one session</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gyms: a monthly plan sized to your gym, plus a small share of each payment — and no monthly fee during your 3-month pilot</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sellers: a share of each order, by product category — no monthly fee</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Trainers: a share of each plan and one-to-one session sold — no monthly fee</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Each sale keeps the rate it was sold at — you see it next to every sale</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Every tool included: front desk, desk payments, store, plan builder, sessions, reviews and reports</li>
         </ul>
       </div>
       <div class="side-p">
         <div>
-          <h4>Ask for your rate</h4>
-          <p>Tell us about your gym, store or training and we’ll walk you through the rates and a demo.</p>
+          <h3>Ask for your rate</h3>
+          <p>Tell us about your gym, store or training business. We’ll show you SubGym and give you a price for your size, with no obligation.</p>
         </div>
-        <a href="#start" class="btn btn-primary" style="justify-content:center">Request a demo</a>
+        <a href="#start" class="btn btn-primary" style="justify-content:center">Book a free demo</a>
       </div>
     </div>
   </div>
@@ -986,7 +1038,7 @@
     </div>
     <div class="faq reveal">
       <details><summary>Do I need turnstiles or special hardware?</summary><p>No. Your front desk opens SubGym in the browser on a laptop or tablet. Members show the QR pass in SubFit; staff scan it with a plug-in barcode scanner, or type the code.</p></details>
-      <details><summary>What does it cost?</summary><p>SubGym is commission-based: you pay a share of what you sell through the platform, with no hardware to buy. Ask us for the current rate for your gym or product category.</p></details>
+      <details><summary>What does it cost?</summary><p>Gyms pay a monthly plan sized to the gym plus a small share of each payment, and start with a 3-month pilot with no monthly fee. Sellers and trainers pay only a share of what they sell. There’s no hardware to buy. Book a demo and we’ll give you the price for your gym, store or training business.</p></details>
       <details><summary>How do members pay?</summary><p>In the SubFit app, by card or mobile money, paid upfront. A card can also renew a gym membership automatically, with a text 3 days before.</p></details>
       <details><summary>Can walk-ins pay at the front desk?</summary><p>Yes. Staff pick a day pass or plan, type the customer’s number, and send a mobile money prompt or a payment link by text. Once it’s paid, they check the customer in on the spot — and the pass is waiting in SubFit when that person signs in.</p></details>
       <details><summary>Can my front-desk staff use it without seeing everything?</summary><p>Yes. Front-desk staff see the overview, the front desk and members: they check members in, take payments and look members up. Revenue, plans, pricing, reports and payouts stay with the owner.</p></details>
